@@ -1,0 +1,25 @@
+# Folders
+export db="$HOME/Dropbox"
+
+# Files
+export bp="$HOME/.bash_profile"
+export vrc="$HOME/.vimrc"
+
+# Others
+export EDITOR=vim
+export VISUAL=vim
+
+
+########################################
+# PATH Settings
+########################################
+
+# Java 7
+#JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+#export JAVA_HOME=${JAVA7_HOME}
+#export PATH=$JAVA_HOME/bin:$PATH
+
+# Java 8
+JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+export JAVA_HOME=${JAVA8_HOME}
+export PATH=$JAVA_HOME/bin:$PATH

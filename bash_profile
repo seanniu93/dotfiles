@@ -59,103 +59,20 @@ test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_i
 # Custom Bash commands
 ########################################
 
-## Open man page in Preview
-function pman {
-	man -t $* | open -f -a Preview;
-}
-
-## Reset DNS cache
-function reset_dns {
-	sudo killall -HUP mDNSResponder
-}
-
-## Custom Commands to change MAC address.
-function macreset {
-	sudo ifconfig en0 ether $SAVEDMAC
-}
-
-function macalt {
-	# cut using space as delimiter, choose 2nd position
-	export SAVEDMAC=`ifconfig en0 ether | ack ether | cut -d' ' -f2`
-	echo "Saved mac address: $SAVEDMAC"
-	local NEWMAC=`openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'`
-	sudo ifconfig en0 ether $NEWMAC
-	echo "New mac: `ifconfig en0 ether | ack ether | cut -d' ' -f2`"
-}
-
-function getmac {
-	echo "Mac address is: `ifconfig en0 ether | ack ether | cut -d' ' -f2`"
-}
-
-function rebuild_open_with_menu {
-	/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
-}
-
-## 'Thanks'
-function thanks {
-	echo "Your're welcome."
-	say "Your're welcome"
-}
-
-## Reset title
-function reset-title {
-	printf '\e]0;\a'
-}
-
-# Postgres
-function postgres.server {
-	if [[ $1 == "start" ]]; then
-		echo "pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-		pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
-	elif [[ $1 == "stop" ]]; then
-		echo "pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-		pg_ctl -D /usr/local/var/postgres stop -s -m fast
-	else
-		echo "Missing 'start' or 'stop'"
-	fi
-}
-
-
-########################################
-# Aliases
-########################################
-
-alias ll="ls -lF"
-alias lla="ls -laF"
-alias la="ls -A"
-
-alias rsync_sync="rsync -rtuvh --delete --stats --progress"
+# Load aliases and functions from another file
+if [ -f $HOME/.bash_aliases ]; then
+	source $HOME/.bash_aliases
+fi
 
 
 ########################################
 # Environment Variables
 ########################################
 
-# Folders
-export db="$HOME/Dropbox"
-
-# Files
-export bp="$HOME/.bash_profile"
-export vrc="$HOME/.vimrc"
-
-# Others
-export EDITOR=vim
-export VISUAL=vim
-
-
-########################################
-# PATH Settings
-########################################
-
-## Java 7
-#JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
-#export JAVA_HOME=${JAVA7_HOME}
-#export PATH=$JAVA_HOME/bin:$PATH
-
-## Java 8
-JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
-export JAVA_HOME=${JAVA8_HOME}
-export PATH=$JAVA_HOME/bin:$PATH
+# Load aliases and functions from another file
+if [ -f $HOME/.env_vars ]; then
+	source $HOME/.env_vars
+fi
 
 
 ########################################
