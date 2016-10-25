@@ -7,3 +7,8 @@ alias list_installed='dpkg --get-selections | grep -v deinstall'
 function lmv() {
     [ -e $1 -a -e $2 ] && mv $1 $2 && ln -s $2/$(basename $1) $(dirname $1);
 }
+
+#### Raspberry Pi ONLY ####
+if [ "$DISTRO" == 'Raspbian' ]; then
+    alias pitemp='/opt/vc/bin/vcgencmd measure_temp'
+fi
