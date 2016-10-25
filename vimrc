@@ -70,7 +70,8 @@ endtry
 if exists('+colorcolumn')	" Only in Vim 7.3+
 	"set colorcolumn=81
 	let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
-	hi ColorColumn ctermbg=233 guibg=#121212
+	"hi ColorColumn ctermbg=233 guibg=#121212   " too dark
+	hi ColorColumn ctermbg=234 guibg=#1c1c1c
 	"autocmd colorscheme *  hi ColorColumn ctermbg=233 guibg=#121212
 else
 	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
