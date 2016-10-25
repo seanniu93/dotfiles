@@ -1,3 +1,5 @@
 [user]
 	email = seanniu93@gmail.com
 	name = Sean Niu
+[core]
+    excludesfile = ~/.gitignore_global
