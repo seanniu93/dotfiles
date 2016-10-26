@@ -1,0 +1,5 @@
+# This causes ssh to use the existing connection
+# rather than opening new ones.
+Host *
+	ControlPath ~/.ssh/master-%r@%h:%p
+	ControlMaster auto

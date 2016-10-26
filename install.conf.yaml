@@ -12,5 +12,6 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.profile: profile
+    ~/.ssh/config.default: ssh/config.default
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
