@@ -8,6 +8,8 @@ alias la="ls -AF"
 
 alias rsync_sync="rsync -rtuvh --delete --stats --progress"
 
+alias emacs="echo 'Nice try' && sleep 1 && vim"
+
 
 ########################################
 # Custom Bash commands
