@@ -10,6 +10,7 @@
     ~/.bash_profile: bash_profile
     ~/.env_vars: env_vars
     ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
     ~/.ssh/config.default: ssh/config.default
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
