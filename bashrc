@@ -140,3 +140,7 @@ if [ -d "$HOME/.pyenv" ]; then
 	export PATH="$PYENV_ROOT/bin:$PATH"
 	eval "$(pyenv init -)"
 fi
+
+# autojump
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && \
+	source $HOME/.autojump/etc/profile.d/autojump.sh
