@@ -1,6 +1,7 @@
 # Determine distribution
 export DISTRO=
-if grep --quiet 'Raspbian' <(cat /etc/*-release); then
+DISTRO_TEXT=$(cat /etc/*-release 2>/dev/null)
+if echo $DISTRO_TEXT | grep --quiet 'Raspbian'; then
     export DISTRO='Raspbian'
 fi
 
