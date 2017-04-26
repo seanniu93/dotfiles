@@ -90,6 +90,9 @@ Plugin 'Lokaltog/vim-easymotion'
 " Vim-trailing-whitespace, nukes all unwanted whitespace
 Plugin 'bronson/vim-trailing-whitespace'
 
+" Golang support
+Plugin 'fatih/vim-go'
+
 "---- Individual color schemes ----
 
 " Distinguished (disabled)
