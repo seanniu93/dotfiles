@@ -129,6 +129,18 @@ if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
 
+# Use arrow keys for history search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Share history between sessions
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL=ignoreboth
+shopt -s histappend
+case $PROMPT_COMMAND in
+  *history*) ;;
+  *) export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" ;;
+esac
 # rbenv
 if [ -d "$HOME/.rbenv" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
