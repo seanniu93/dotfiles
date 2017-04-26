@@ -133,9 +133,9 @@ filetype plugin indent on    " required
 "===============================================================================
 
 "---- Default tab settings ----
-set tabstop=8		" How big a tab is
-set softtabstop=8	" How many columns when tabbing
-set shiftwidth=8	" How many columns for re-indents
+set tabstop=4		" How big a tab is
+set softtabstop=4	" How many columns when tabbing
+set shiftwidth=4	" How many columns for re-indents
 set noexpandtab
 "set expandtab		" Turn tabs -> spaces
 
