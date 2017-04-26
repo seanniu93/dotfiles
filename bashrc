@@ -157,3 +157,9 @@ fi
 # autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && \
 	source $HOME/.autojump/etc/profile.d/autojump.sh
+
+# Go
+if [ -d /usr/local/go ]; then
+	export GOPATH=$HOME/go
+	export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+fi
