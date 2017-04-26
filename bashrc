@@ -5,6 +5,11 @@ if echo $DISTRO_TEXT | grep --quiet 'Raspbian'; then
     export DISTRO='Raspbian'
 fi
 
+
+###################
+# DEBIAN TEMPLATE #
+###################
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -120,6 +125,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+#################
+# BASH SETTINGS #
+#################
+
+# Source any extra environment variables
+if [ -f ~/.env_vars ]; then
+	. ~/.env_vars
+fi
+
 # Set default editors
 export EDITOR=vim
 export VISUAL=vim
@@ -141,6 +156,12 @@ case $PROMPT_COMMAND in
   *history*) ;;
   *) export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" ;;
 esac
+
+
+####################
+# PROGRAM SETTINGS #
+####################
+
 # rbenv
 if [ -d "$HOME/.rbenv" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
