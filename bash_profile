@@ -29,7 +29,7 @@ function prompt {
 prompt
 
 ########################################
-# Requres Homebrew or other app
+# Program settings
 ########################################
 
 ## [brew] Enable bash-completion2
@@ -46,14 +46,26 @@ fi
 ## [pip] the fuck (Disabled for being slow)
 # eval $(thefuck --alias)
 
-## [rbenv] Initialize rbenv to enable shims and autocompletion
-if type rbenv > /dev/null; then
+## [brew] Initialize rbenv to enable shims and autocompletion
+if type rbenv > /dev/null 2>&1; then
 	eval "$(rbenv init -)";
+fi
+
+## [brew] Initialize pyenv
+if type pyenv > /dev/null 2>&1; then
+	eval "$(pyenv init -)";
 fi
 
 ## [iterm2] Enable iTerm 2 shell integration
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
+## [brew] fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+## [brew] fasd
+if type fasd > /dev/null 2>&1; then
+	eval "$(fasd --init auto)"
+fi
 
 ########################################
 # Custom Bash commands
