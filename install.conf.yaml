@@ -14,4 +14,5 @@
     ~/.profile: profile
     ~/.ssh/config.default: ssh/config.default
     ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
     ~/.vimrc: vimrc
