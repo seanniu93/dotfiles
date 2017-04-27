@@ -28,6 +28,25 @@ function prompt {
 }
 prompt
 
+## History settings
+HISTSIZE=64000
+HISTFILESIZE=64000
+HISTCONTROL=ignoreboth  # Ignore duplicates and commands starting with space
+HISTTIMEFORMAT="[%F %T %z] "  # Enable timestamps in bash_history
+# Stop history being clobbered if there are multiple shells open
+shopt -s histappend
+
+# Share history between bash sessions
+case $PROMPT_COMMAND in
+  *history*) ;;
+  *) export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" ;;
+esac
+
+# Use arrow keys for history search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+
 ########################################
 # Program settings
 ########################################
