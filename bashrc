@@ -28,8 +28,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=64000
+HISTFILESIZE=64000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -144,18 +144,18 @@ if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-# Use arrow keys for history search
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+## History settings
+HISTTIMEFORMAT="[%F %T %z] "  # Enable timestamps in bash_history
 
 # Share history between sessions
-export HISTTIMEFORMAT="%d/%m/%y %T "
-export HISTCONTROL=ignoreboth
-shopt -s histappend
 case $PROMPT_COMMAND in
   *history*) ;;
   *) export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" ;;
 esac
+
+# Use arrow keys for history search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 
 
 ####################
