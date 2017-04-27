@@ -17,6 +17,7 @@
 	tags = tag
 	stashes = stash list
 	remotes = remote -v
+	aliases = config --get-regexp ^alias\\.
 
 	# Staging
 	unstage = reset -q HEAD --
