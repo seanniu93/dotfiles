@@ -9,11 +9,6 @@ export vrc="$HOME/.vimrc"
 export EDITOR=vim
 export VISUAL=vim
 
-
-########################################
-# PATH Settings
-########################################
-
 # Java 7
 #JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
 #export JAVA_HOME=${JAVA7_HOME}
@@ -23,3 +18,7 @@ export VISUAL=vim
 JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
 export JAVA_HOME=${JAVA8_HOME}
 export PATH=$JAVA_HOME/bin:$PATH
+
+# Go
+export GOPATH=$HOME/Developer/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
