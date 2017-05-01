@@ -178,6 +178,8 @@ fi
 # autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && \
 	source $HOME/.autojump/etc/profile.d/autojump.sh
+[[ -s /usr/share/autojump/autojump.sh ]] && \
+    source /usr/share/autojump/autojump.sh
 
 # Go
 if [ -d /usr/local/go ]; then
