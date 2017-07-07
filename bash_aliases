@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Show list of all installed packages (Debian)
 # Credit: StackOverflow
 alias list_installed='dpkg --get-selections | grep -v deinstall'
@@ -10,6 +12,10 @@ function lmv() {
 
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
+
+# Start ssh-agent and add default key
+alias remember_ssh='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
+
 
 #####################
 # Raspberry Pi ONLY #
