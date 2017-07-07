@@ -1,5 +1,9 @@
 #!/bin/bash
 
+##########
+# Common #
+##########
+
 # Show list of all installed packages (Debian)
 # Credit: StackOverflow
 alias list_installed='dpkg --get-selections | grep -v deinstall'
@@ -16,10 +20,16 @@ alias tmux='tmux -2'
 # Start ssh-agent and add default key
 alias remember_ssh='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
 
+alias count_files='find . -type f | wc -l'
+
+# Disable emacs
+alias emacs='echo "nice try" && sleep 2 && vim'
+
 
 #####################
 # Raspberry Pi ONLY #
 #####################
+
 if [ "$DISTRO" == 'Raspbian' ]; then
     alias pitemp='/opt/vc/bin/vcgencmd measure_temp'
 fi
