@@ -3,6 +3,14 @@
 
 set nocompatible    " Use Vim settings instead of Vi
 
+" PLUGINS
+"========
+
+try
+	source ~/.vim/plugs.vim
+catch
+	" No plugins set up
+endtry
 
 " EDITING
 "===============================================================================
