@@ -17,6 +17,9 @@ function lmv() {
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
 
+alias tma='tmux a -t'
+alias tmn='tmux new -s'
+
 # Start ssh-agent and add default key
 alias remember_ssh='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
 
