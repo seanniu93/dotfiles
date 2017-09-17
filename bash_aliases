@@ -10,6 +10,9 @@ alias rsync_sync="rsync -rtuvh --delete --stats --progress"
 
 alias emacs="echo 'Nice try' && sleep 1 && vim"
 
+alias tma="tmux a -t"
+alias tmn="tmux new -s"
+
 
 ########################################
 # Custom Bash commands
