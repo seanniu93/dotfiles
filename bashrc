@@ -183,7 +183,9 @@ fi
 
 # Go
 if [ -d /usr/local/go ]; then
-	export GOPATH=$HOME/Developer/go
+	GOPATH_PUBLIC=$HOME/Developer/go/public
+	GOPATH_PERSONAL=$HOME/Developer/go/personal
+	export GOPATH=$GOPATH_PUBLIC:$GOPATH_PERSONAL
 	export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 fi
 
