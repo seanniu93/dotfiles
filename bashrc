@@ -131,6 +131,9 @@ fi
 # BASH SETTINGS #
 #################
 
+# Expand $variables when using tab complete
+shopt -s direxpand
+
 # Source any extra environment variables
 if [ -f ~/.env_vars ]; then
 	. ~/.env_vars
