@@ -2,6 +2,9 @@
 # Bash Settings
 ########################################
 
+# Expand $variables when using tab complete
+shopt -s direxpand
+
 bind "set completion-ignore-case on"	# Make bash case insensitive.
 export CLICOLOR=1			# Global terminal colors
 export LSCOLORS=GxFxCxDxBxegedabagaced	# Tell 'ls' to be colorful
