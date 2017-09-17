@@ -3,14 +3,16 @@
 
 set nocompatible    " Use Vim settings instead of Vi
 
+
 " PLUGINS
-"========
+"===============================================================================
 
 try
 	source ~/.vim/plugs.vim
 catch
 	" No plugins set up
 endtry
+
 
 " EDITING
 "===============================================================================
@@ -24,12 +26,10 @@ set shiftwidth=4    " How many columns for re-indents
 set noexpandtab
 "set expandtab       " Turn tabs -> spaces
 
-
 "---- Search settings ----
 set incsearch       " do incremental searching
 set ignorecase      " Use case insensitive search
 set smartcase       " Except when search query has capital letters
-
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -58,7 +58,6 @@ set noshowmode      " Hide the default mode text
 " 'press <Enter> to continue'
 set cmdheight=2
 
-
 "---- Color Scheme ----
 try
 	colorscheme tomorrow-night-bright
@@ -70,12 +69,11 @@ endtry
 "let g:molokai_original=1
 "set list listchars=tab:»·,trail:    " Display extra whitespace
 
-
 "---- 80th column marker ----
 " Color names available at:
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
-"set textwidth=80	" Limits text to 80 chars per column
-if exists('+colorcolumn')	" Only in Vim 7.3+
+"set textwidth=80  " Limits text to 80 chars per column
+if exists('+colorcolumn')  " Only in Vim 7.3+
 	"set colorcolumn=81
 	let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
 	"hi ColorColumn ctermbg=233 guibg=#121212   " too dark
@@ -85,7 +83,6 @@ else
 	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-
 "---- Syntax highlighting ----
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -93,7 +90,6 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 	set hlsearch
 endif
-
 
 " Folding color
 hi Folded guibg=#262626 ctermbg=235
@@ -112,18 +108,15 @@ set modeline        " If on, disallow insecure modeline
 set startofline     " If on, prevent resetting cursor to beginning of line
 "set clipboard=unnamed  " Use the system clipboard
 
-
 "---- Code folding settings ----
 set foldenable          " Enable folding
 set foldlevelstart=10   " Open most fold by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " Fold based on indent level
 
-
 "---- Backup settings ----
 "set backup                  " keep a backup file
 "set backupdir=~/.vim/backup " Set backup directory
-
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -133,7 +126,6 @@ endif
 "---- Set default splitting behavior ----
 set splitbelow
 set splitright
-
 
 " Allow edited buffers to be in non-visible buffers
 "set hidden
@@ -164,7 +156,6 @@ if has("autocmd")
 else
 	set autoindent      " always set autoindenting on
 endif " has("autocmd")
-
 
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
@@ -213,8 +204,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-
 if !exists("FixTrailingSpaces")
 	command FixTrailingSpaces %s/\s\+$//
 endif
-
