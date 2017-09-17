@@ -7,6 +7,8 @@ export CLICOLOR=1			# Global terminal colors
 export LSCOLORS=GxFxCxDxBxegedabagaced	# Tell 'ls' to be colorful
 export GREP_OPTIONS='--color=auto'	# Tell grep to highlight matchs
 
+PROMPT_DIRTRIM=3
+
 ## Prompt colors and text
 function prompt {
 	# Custom colors
@@ -18,7 +20,7 @@ function prompt {
 	local RED="\[033[0;31m\]"
 
 	# username@computer:directory$
-	PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CLEAR}\W$ "
+	PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}$ "
 
 	# username@computer:directory$ with newline
 	#PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CLEAR}\w\n$ "
