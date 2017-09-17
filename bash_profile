@@ -5,10 +5,10 @@
 # Expand $variables when using tab complete
 shopt -s direxpand
 
-bind "set completion-ignore-case on"	# Make bash case insensitive.
-export CLICOLOR=1			# Global terminal colors
-export LSCOLORS=GxFxCxDxBxegedabagaced	# Tell 'ls' to be colorful
-export GREP_OPTIONS='--color=auto'	# Tell grep to highlight matchs
+bind "set completion-ignore-case on"   # Make bash case insensitive.
+export CLICOLOR=1                      # Global terminal colors
+export LSCOLORS=GxFxCxDxBxegedabagaced # Tell 'ls' to be colorful
+export GREP_OPTIONS='--color=auto'     # Tell grep to highlight matchs
 
 PROMPT_DIRTRIM=3
 
