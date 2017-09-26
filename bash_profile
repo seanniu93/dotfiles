@@ -5,6 +5,9 @@
 # Expand $variables when using tab complete
 shopt -s direxpand
 
+# Use ** for recursive filename expansion
+shopt -s globstar
+
 bind "set completion-ignore-case on"   # Make bash case insensitive.
 export CLICOLOR=1                      # Global terminal colors
 export LSCOLORS=GxFxCxDxBxegedabagaced # Tell 'ls' to be colorful
