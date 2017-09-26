@@ -23,4 +23,5 @@ export PATH=$JAVA_HOME/bin:$PATH
 GOPATH_PUBLIC=$HOME/Developer/go/public
 GOPATH_PERSONAL=$HOME/Developer/go/personal
 export GOPATH=$GOPATH_PUBLIC:$GOPATH_PERSONAL
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$GOPATH_PUBLIC/bin:$GOPATH_PERSONAL/bin
