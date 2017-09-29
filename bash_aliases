@@ -12,6 +12,7 @@ alias emacs="echo 'Nice try' && sleep 1 && vim"
 
 alias tma="tmux a -t"
 alias tmn="tmux new -s"
+alias tml="tmux ls"
 
 
 ########################################
