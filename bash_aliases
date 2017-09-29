@@ -19,6 +19,7 @@ alias tmux='tmux -2'
 
 alias tma='tmux a -t'
 alias tmn='tmux new -s'
+alias tml='tmux ls'
 
 # Start ssh-agent and add default key
 alias ssh_add='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
