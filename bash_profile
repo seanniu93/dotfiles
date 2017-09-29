@@ -39,8 +39,8 @@ prompt
 ## History settings
 HISTSIZE=64000
 HISTFILESIZE=64000
-HISTCONTROL=ignoreboth  # Ignore duplicates and commands starting with space
-HISTTIMEFORMAT="[%F %T %z] "  # Enable timestamps in bash_history
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT="[%F %T %z] "
 # Stop history being clobbered if there are multiple shells open
 shopt -s histappend
 
