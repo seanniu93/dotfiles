@@ -195,3 +195,8 @@ fi
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# keychain
+if [ -f /usr/bin/keychain ]; then
+	alias start_keychain='eval `keychain --eval --agents ssh id_rsa`'
+fi
