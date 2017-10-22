@@ -180,9 +180,11 @@ noremap <silent> <C-L> :nohls<CR><C-L>
 "nnoremap <C-L> <C-W>l  " <C-L> conflicts with redraw
 "nnoremap <C-H> <C-W>h
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" CTRL-U (and W) in insert mode deletes a lot. Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
+" See: http://vim.wikia.com/wiki/Recover_from_accidental_Ctrl-U
 inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
 
 "---- Custom leader binds ----
 
