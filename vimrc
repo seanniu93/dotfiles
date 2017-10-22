@@ -2,7 +2,7 @@
 " Updated: 2015/01/31
 "===============================================================================
 
-" VUNDLE {{{1
+" VUNDLE
 "===============================================================================
 
 " Use Vim settings, rather than Vi settings (much better!).
@@ -131,8 +131,7 @@ filetype plugin indent on    " required
 " NOTE: comments after Bundle commands are not allowed.
 
 
-
-" EDITING {{{1
+" EDITING
 "===============================================================================
 
 "---- Default tab settings ----
@@ -140,7 +139,7 @@ set tabstop=4       " How big a tab is
 set softtabstop=4   " How many columns when tabbing
 set shiftwidth=4    " How many columns for re-indents
 set noexpandtab
-"set expandtab      " Turn tabs -> spaces
+"set expandtab       " Turn tabs -> spaces
 
 "---- Search settings ----
 set incsearch       " do incremental searching
@@ -160,8 +159,7 @@ set formatoptions+=r    " Comment leader
 set tabpagemax=100
 
 
-
-" VISUAL {{{1
+" VISUAL
 "===============================================================================
 
 "---- Command bar stuff ----
@@ -175,33 +173,30 @@ set noshowmode      " Hide the default mode text
 " 'press <Enter> to continue'
 set cmdheight=2
 
-
 "---- Color Scheme ----
-"set background=dark  " For using vim with a dark background
 try
 	colorscheme tomorrow-night-bright
 	"colorscheme molokai
 catch
 	" No color scheme"
-	set background=dark  " For using vim with a dark background
+	set background=dark " For using vim with a dark background
 endtry
 "let g:molokai_original=1
-"set list listchars=tab:»·,trail:·  " Display extra whitespace
-
+"set list listchars=tab:»·,trail:    " Display extra whitespace
 
 "---- 80th column marker ----
 " Color names available at:
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
-"set textwidth=80           " Limits text to 80 chars per column
+"set textwidth=80  " Limits text to 80 chars per column
 if exists('+colorcolumn')  " Only in Vim 7.3+
 	"set colorcolumn=81
 	let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
-	hi ColorColumn ctermbg=233 guibg=#121212
+	"hi ColorColumn ctermbg=233 guibg=#121212   " too dark
+	hi ColorColumn ctermbg=234 guibg=#1c1c1c
 	"autocmd colorscheme *  hi ColorColumn ctermbg=233 guibg=#121212
 else
 	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
-
 
 "---- Syntax highlighting ----
 " Switch syntax highlighting on, when the terminal has colors
@@ -214,37 +209,38 @@ endif
 " Folding color
 hi Folded guibg=#262626 ctermbg=235
 
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\| \+\ze\t/
 
-" BEHAVIOR {{{1
+
+" BEHAVIOR
 "===============================================================================
 
-set history=50          " Keep 50 lines of command line history
-set wildmenu            " Better command-line completion
-set modeline            " If on, disallow insecure modeline
-set startofline         " If on, prevent resetting cursor to beginning of line
+set history=50      " Keep 50 lines of command line history
+set wildmenu        " Better command-line completion
+set modeline        " If on, disallow insecure modeline
+set startofline     " If on, prevent resetting cursor to beginning of line
 "set clipboard=unnamed  " Use the system clipboard
 
 "---- Code folding settings ----
-set foldenable         " Enable folding
-set foldlevelstart=10  " Open most fold by default
-set foldnestmax=10     " 10 nested fold max
-set foldmethod=indent  " Fold based on indent level
+set foldenable          " Enable folding
+set foldlevelstart=10   " Open most fold by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " Fold based on indent level
 
-"---- backup settings ----
-set backup                   " keep a backup file
-set backupdir=~/.vim/backup  " Set backup directory
-
+"---- Backup settings ----
+"set backup                  " keep a backup file
+"set backupdir=~/.vim/backup " Set backup directory
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
 	set mouse=a
 endif
 
-
 "---- Set default splitting behavior ----
 set splitbelow
 set splitright
-
 
 " Allow edited buffers to be in non-visible buffers
 "set hidden
@@ -273,17 +269,15 @@ if has("autocmd")
 
 	augroup END
 else
-	set autoindent  " always set autoindenting on
+	set autoindent      " always set autoindenting on
 endif " has("autocmd")
-
 
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
 "set confirm
 
 
-
-" MAPPINGS {{{1
+" MAPPINGS
 "===============================================================================
 
 " Map Y to behave like y$ (yank until EOL) instead of yy
@@ -313,11 +307,10 @@ inoremap <C-W> <C-G>u<C-W>
 nnoremap <leader>s :update<CR>
 
 " Save with less keystrokes, and also trim whitespace
-" nnoremap <leader>s :%s/\s\+$/<CR>:update<CR>
+"nnoremap <leader>s :%s/\s\+$/<CR>:update<CR>
 
 
-
-" COMMANDS and FUNCTIONS {{{1
+" COMMANDS and FUNCTIONS
 "===============================================================================
 
 " Convenient command to see the difference between the current buffer and the
@@ -328,10 +321,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-
 if !exists("FixTrailingSpaces")
 	command FixTrailingSpaces %s/\s\+$//
 endif
-
-" }}}
-" <remove to enable>vim:foldmethod=marker:foldlevel=0
