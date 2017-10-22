@@ -1,13 +1,16 @@
-# Folders
+# Common folders
 export db="$HOME/Dropbox"
 
-# Files
+# Common files
 export bp="$HOME/.bash_profile"
 export vrc="$HOME/.vimrc"
 
-# Others
+# Set default editor to vim
 export EDITOR=vim
 export VISUAL=vim
+
+# User /bin
+export PATH=$PATH:$HOME/Applications/bin
 
 # Java 7
 #JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
