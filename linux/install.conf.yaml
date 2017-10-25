@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash_aliases: linux/bash_aliases
+    ~/.bash_logout: linux/bash_logout
+    ~/.bashrc: linux/bashrc
+    ~/.gitconfig: linux/gitconfig
+    ~/.gitignore_global: linux/gitignore_global
+    ~/.profile: linux/profile
+    ~/.ssh/config.default: linux/ssh/config.default
+    ~/.tmux.conf: linux/tmux.conf
+    ~/.vim: linux/vim
+    ~/.vimrc: linux/vimrc
