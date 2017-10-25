@@ -11,6 +11,5 @@
     ~/.bashrc: linux/bashrc
     ~/.profile: linux/profile
     ~/.ssh/config.default: linux/ssh/config.default
-    ~/.tmux.conf: linux/tmux.conf
     ~/.vim: linux/vim
     ~/.vimrc: linux/vimrc

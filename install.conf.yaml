@@ -8,3 +8,4 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
+    ~/.tmux.conf: tmux.conf
