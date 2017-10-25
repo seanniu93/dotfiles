@@ -1,3 +1,6 @@
 !.gitignore
 
-linux/vim/plugged
+/linux/vim/plugged
+
+/osx/vim/backup
+/osx/vim/bundle

@@ -1,0 +1,58 @@
+[user]
+	name = Sean Niu
+	email = seanniu93@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[alias]
+	# SVN-like
+	st = status
+	ci = commit
+
+	# More readable git aliases
+	# Credit: http://gggritso.com/human-git-aliases
+
+	# Consistent listing
+	branches = branch -a
+	tags = tag
+	stashes = stash list
+	remotes = remote -v
+	aliases = config --get-regexp ^alias\\.
+
+	# Staging
+	unstage = reset -q HEAD --
+	discard = checkout --
+	uncommit = reset --mixed HEAD~
+	amend = commit --amend
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	precommit = diff --cached --diff-algorithm=minimal -w
+	unmerged = diff --name-only --diff-filter=U
+
+	# Finding
+	whenadded = log --diff-filter=A
+
+	# Log formats
+	fancy = log --graph \
+		--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
+		--abbrev-commit --date=relative
+	graph = log --graph -10 --branches --remotes --tags \
+		--format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' \
+		--date-order
+[push]
+	default = simple
+[color]
+	ui = auto
+[diff]
+	tool = kdiff3
+[merge]
+	tool = kdiff3
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f

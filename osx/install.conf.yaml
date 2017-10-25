@@ -1,0 +1,17 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash_aliases: osx/bash_aliases
+    ~/.bash_profile: osx/bash_profile
+    ~/.env_vars: osx/env_vars
+    ~/.gitconfig: osx/gitconfig
+    ~/.gitignore_global: osx/gitignore_global
+    ~/.ssh/config.default: osx/ssh/config.default
+    ~/.tmux.conf: osx/tmux.conf
+    ~/.vim: osx/vim
+    ~/.vimrc: osx/vimrc
