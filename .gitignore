@@ -1,4 +1,4 @@
 !.gitignore
 
-vim/backup
-vim/bundle
+/osx/vim/backup
+/osx/vim/bundle
