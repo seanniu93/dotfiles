@@ -1,5 +1,9 @@
 !.gitignore
 
+/vim/autoload/plug.vim
+/vim/autoload/plug.vim.old
+/vim/plugged
+
 /linux/vim/plugged
 
 /osx/vim/backup

@@ -10,14 +10,13 @@ set nocompatible    " Use Vim settings instead of Vi
 try
 	source ~/.vim/plugs.vim
 catch
-	" No plugins set up
+	echom 'Plugin file missing or something went wrong'
+	filetype plugin indent on
 endtry
 
 
 " EDITING
 "===============================================================================
-
-filetype plugin indent on
 
 "---- Default tab settings ----
 set tabstop=4       " How big a tab is
@@ -38,7 +37,7 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
 
 " Formatting options
-set formatoptions+=r    " Comment leader
+set formatoptions+=r    " Automatically insert comment leader
 
 " Enable more tabs
 set tabpagemax=100
@@ -52,7 +51,7 @@ set ruler           " Show the cursor position all the time
 set number          " Show line numbers
 set showcmd         " Display incomplete commands
 set laststatus=2    " Always show status bar
-set noshowmode      " Hide the default mode text
+"set noshowmode     " Hide the default mode text
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " 'press <Enter> to continue'
@@ -62,23 +61,19 @@ set cmdheight=2
 try
 	colorscheme tomorrow-night-bright
 	"colorscheme molokai
+	"let g:molokai_original=1
 catch
-	" No color scheme"
+	" Colorscheme not installed
 	set background=dark " For using vim with a dark background
 endtry
-"let g:molokai_original=1
-"set list listchars=tab:»·,trail:    " Display extra whitespace
 
 "---- 80th column marker ----
 " Color names available at:
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "set textwidth=80  " Limits text to 80 chars per column
 if exists('+colorcolumn')  " Only in Vim 7.3+
-	"set colorcolumn=81
 	let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
-	"hi ColorColumn ctermbg=233 guibg=#121212   " too dark
-	hi ColorColumn ctermbg=234 guibg=#1c1c1c
-	"autocmd colorscheme *  hi ColorColumn ctermbg=233 guibg=#121212
+	highlight ColorColumn ctermbg=234 guibg=#1c1c1c
 else
 	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -87,7 +82,9 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-	syntax on
+	if !exists("g:syntax_on")
+		syntax enable
+	endif
 	set hlsearch
 endif
 
@@ -97,6 +94,10 @@ hi Folded guibg=#262626 ctermbg=235
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+" Whitespace character symmbols. :set list! to toggle visibility
+set listchars=tab:│·,trail:·,nbsp:·,precedes:←,extends:→
+let &showbreak='↪ '
 
 
 " BEHAVIOR
@@ -203,6 +204,12 @@ nnoremap <leader>s :update<CR>
 
 " Save with less keystrokes, and also trim whitespace
 "nnoremap <leader>s :%s/\s\+$/<CR>:update<CR>
+
+" Save session
+nnoremap <leader>S :mksession! Session.vim<CR>
+
+" Show listchars
+nnoremap <leader>l :set list!<CR>
 
 
 " COMMANDS and FUNCTIONS

@@ -10,5 +10,3 @@
     ~/.bash_profile: osx/bash_profile
     ~/.env_vars: osx/env_vars
     ~/.ssh/config.default: osx/ssh/config.default
-    ~/.vim: osx/vim
-    ~/.vimrc: osx/vimrc

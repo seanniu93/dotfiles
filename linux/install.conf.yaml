@@ -11,5 +11,3 @@
     ~/.bashrc: linux/bashrc
     ~/.profile: linux/profile
     ~/.ssh/config.default: linux/ssh/config.default
-    ~/.vim: linux/vim
-    ~/.vimrc: linux/vimrc
