@@ -10,4 +10,3 @@
     ~/.bash_logout: linux/bash_logout
     ~/.bashrc: linux/bashrc
     ~/.profile: linux/profile
-    ~/.ssh/config.default: linux/ssh/config.default
