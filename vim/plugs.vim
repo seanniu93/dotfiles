@@ -1,8 +1,8 @@
 " Install Vim-Plug if it's not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !echo 'Downloading vim-plug'
+    silent !echo 'Downloading vim-plug'
     !curl -fLo ~/.vim/autoload/plug.vim --create-dirs --stderr -
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Vim-Plug
@@ -63,9 +63,9 @@ Plug 'tpope/vim-fugitive'
 
 " Fzf
 if !empty(glob('/usr/local/opt/fzf/plugin/fzf.vim'))
-	Plug '/usr/local/opt/fzf'
+    Plug '/usr/local/opt/fzf'
 else
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>

@@ -8,10 +8,10 @@ set nocompatible    " Use Vim settings instead of Vi
 "===============================================================================
 
 try
-	source ~/.vim/plugs.vim
+    source ~/.vim/plugs.vim
 catch
-	echom 'Plugin file missing or something went wrong'
-	filetype plugin indent on
+    echom 'Plugin file missing or something went wrong'
+    filetype plugin indent on
 endtry
 
 
@@ -60,12 +60,12 @@ set cmdheight=2
 
 "---- Color Scheme ----
 try
-	colorscheme tomorrow-night-bright
-	"colorscheme molokai
-	"let g:molokai_original=1
+    colorscheme tomorrow-night-bright
+    "colorscheme molokai
+    "let g:molokai_original=1
 catch
-	" Colorscheme not installed
-	set background=dark " For using vim with a dark background
+    " Colorscheme not installed
+    set background=dark " For using vim with a dark background
 endtry
 
 "---- 80th column marker ----
@@ -73,20 +73,20 @@ endtry
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "set textwidth=80  " Limits text to 80 chars per column
 if exists('+colorcolumn')  " Only in Vim 7.3+
-	let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
-	highlight ColorColumn ctermbg=234 guibg=#1c1c1c
+    let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
+    highlight ColorColumn ctermbg=234 guibg=#1c1c1c
 else
-	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+    autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 "---- Syntax highlighting ----
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-	if !exists("g:syntax_on")
-		syntax enable
-	endif
-	set hlsearch
+    if !exists("g:syntax_on")
+        syntax enable
+    endif
+    set hlsearch
 endif
 
 " Folding color
@@ -124,9 +124,9 @@ set statusline+=%*
 
 " Change the status line color based on mode
 if version >= 700
-	highlight statusLine cterm=bold ctermfg=black ctermbg=green
-	au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
-	au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
+    highlight statusLine cterm=bold ctermfg=black ctermbg=green
+    au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
+    au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
 endif
 
 
@@ -152,14 +152,14 @@ set foldmethod=indent   " Fold based on indent level
 
 " Enable persistent undo so that undo history persists across vim sessions
 if has('persistent_undo')
-	set undofile
-	set undodir=~/.vim/undo
-	silent call system('mkdir -p ' . &undodir)
+    set undofile
+    set undodir=~/.vim/undo
+    silent call system('mkdir -p ' . &undodir)
 endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-	set mouse=a
+    set mouse=a
 endif
 
 " Set default splitting behavior
@@ -174,26 +174,26 @@ map Q gq
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-	" Put these in an autocmd group, so that we can delete them easily.
-	augroup vimrcEx
-	au!
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+    au!
 
-	" For all text files set 'textwidth' to 78 characters.
-	autocmd FileType text setlocal textwidth=78
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-	" When editing a file, always jump to the last known cursor position.
-	" Don't do it when the position is invalid or when inside an event handler
-	" (happens when dropping a file on gvim).
-	" Also don't do it when the mark is in the first line, that is the default
-	" position when opening a file.
-	autocmd BufReadPost *
-		\ if line("'\"") > 1 && line("'\"") <= line("$") |
-		\   exe "normal! g`\"" |
-		\ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 
-	augroup END
+    augroup END
 else
-	set autoindent      " always set autoindenting on
+    set autoindent      " always set autoindenting on
 endif " has("autocmd")
 
 " Instead of failing a command because of unsaved changes, instead raise a
@@ -204,10 +204,10 @@ endif " has("autocmd")
 " tmux will send xterm-style keys when xterm-keys is on
 " See: https://unix.stackexchange.com/a/34723
 if &term =~ '^screen'
-	execute "set <xUp>=\e[1;*A"
-	execute "set <xDown>=\e[1;*B"
-	execute "set <xRight>=\e[1;*C"
-	execute "set <xLeft>=\e[1;*D"
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
 endif
 
 
@@ -260,10 +260,10 @@ nnoremap <leader>l :set list!<CR>
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+          \ | wincmd p | diffthis
 endif
 
 if !exists("FixTrailingSpaces")
-	command FixTrailingSpaces %s/\s\+$//
+    command FixTrailingSpaces %s/\s\+$//
 endif
