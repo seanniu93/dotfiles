@@ -5,12 +5,8 @@ export db="$HOME/Dropbox"
 export bp="$HOME/.bash_profile"
 export vrc="$HOME/.vimrc"
 
-# Set default editor to vim
-export EDITOR=vim
-export VISUAL=vim
-
 # User /bin
-export PATH=$PATH:$HOME/Applications/bin
+pathprepend "$HOME/Applications/bin"
 
 # Java 7
 #JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
@@ -19,12 +15,12 @@ export PATH=$PATH:$HOME/Applications/bin
 
 # Java 8
 JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
-export JAVA_HOME=${JAVA8_HOME}
-export PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME="$JAVA8_HOME"
+pathprepend "$JAVA_HOME/bin"
 
 # Go
-GOPATH_PUBLIC=$HOME/Developer/go/public
-GOPATH_PERSONAL=$HOME/Developer/go/personal
-export GOPATH=$GOPATH_PUBLIC:$GOPATH_PERSONAL
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:$GOPATH_PUBLIC/bin:$GOPATH_PERSONAL/bin
+GOPATH_PUBLIC="$HOME/Developer/go/public"
+GOPATH_PERSONAL="$HOME/Developer/go/personal"
+export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
+pathprepend /usr/local/opt/go/libexec/bin
+pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"

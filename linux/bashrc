@@ -73,11 +73,11 @@ alias l='ls -CF'
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 
@@ -88,18 +88,6 @@ fi
 # Set PATH so it includes user's private bin if it exists
 pathprepend "$HOME/bin"
 
-# Expand $variables when using tab complete
-shopt -s direxpand
-
-# Set default editors
-export EDITOR=vim
-export VISUAL=vim
-
-# Add personal bin to path
-if [ -d "$HOME/bin" ]; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
 
 ####################
 # PROGRAM SETTINGS #
@@ -107,29 +95,29 @@ fi
 
 # rbenv
 if [ -d "$HOME/.rbenv" ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
+    pathprepend "$HOME/.rbenv/bin"
     eval "$(rbenv init -)"
 fi
 
 # pyenv
 if [ -d "$HOME/.pyenv" ]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
+    pathprepend "$HOME/.pyenv/bin"
     eval "$(pyenv init -)"
 fi
 
 # autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && \
-    source $HOME/.autojump/etc/profile.d/autojump.sh
+    . $HOME/.autojump/etc/profile.d/autojump.sh
 [[ -s /usr/share/autojump/autojump.sh ]] && \
-    source /usr/share/autojump/autojump.sh
+    . /usr/share/autojump/autojump.sh
 
 # Go
 if [ -d /usr/local/go ]; then
-    GOPATH_PUBLIC=$HOME/Developer/go/public
-    GOPATH_PERSONAL=$HOME/Developer/go/personal
-    export GOPATH=$GOPATH_PUBLIC:$GOPATH_PERSONAL
-    export PATH=$PATH:/usr/local/go/bin
-    export PATH=$PATH:$GOPATH_PUBLIC/bin:$GOPATH_PERSONAL/bin
+    GOPATH_PUBLIC="$HOME/Developer/go/public"
+    GOPATH_PERSONAL="$HOME/Developer/go/personal"
+    export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
+    pathprepend /usr/local/go/bin
+    pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
 fi
 
 # fzf
