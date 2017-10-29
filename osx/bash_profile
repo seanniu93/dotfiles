@@ -1,8 +1,6 @@
-#!/usr/bin/env bash
-
-########################################
-# Bash Settings
-########################################
+#################
+# Bash Settings #
+#################
 
 bind "set completion-ignore-case on"   # Make bash case insensitive.
 export CLICOLOR=1                      # Global terminal colors
@@ -11,7 +9,7 @@ export GREP_OPTIONS='--color=auto'     # Tell grep to highlight matchs
 
 PROMPT_DIRTRIM=3
 
-## Prompt colors and text
+# Prompt colors and text
 function prompt {
     # Custom colors
     local WHITE="\[\033[1;37m\]"
@@ -33,41 +31,52 @@ function prompt {
 prompt
 
 
-########################################
-# Program settings
-########################################
+####################
+# Program Settings #
+####################
 
-## [brew] Enable bash-completion2
+# [brew] Enable bash-completion2
 if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
     . $(brew --prefix)/share/bash-completion/bash_completion
 fi
 
-## [brew] autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+# Set PATH so it includes user's private bin if it exists
+pathprepend "$HOME/Applications/bin"
 
-## [brew] Generic Colorizer
-#source "`brew --prefix grc`/etc/grc.bashrc"
+# Java 7
+#JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+#export JAVA_HOME=${JAVA7_HOME}
+#export PATH=$JAVA_HOME/bin:$PATH
 
-## [pip] the fuck (Disabled for being slow)
-# eval $(thefuck --alias)
+# Java 8
+JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+export JAVA_HOME="$JAVA8_HOME"
+pathprepend "$JAVA_HOME/bin"
 
-## [brew] Initialize rbenv to enable shims and autocompletion
+# [brew] Initialize rbenv to enable shims and autocompletion
 if type rbenv > /dev/null 2>&1; then
     eval "$(rbenv init -)";
 fi
 
-## [brew] Initialize pyenv
+# [brew] Initialize pyenv
 if type pyenv > /dev/null 2>&1; then
     eval "$(pyenv init -)";
 fi
 
-## [iterm2] Enable iTerm 2 shell integration
+# Go
+if [ -d /usr/local/opt/go ]; then
+    GOPATH_PUBLIC="$HOME/Developer/go/public"
+    GOPATH_PERSONAL="$HOME/Developer/go/personal"
+    export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
+    pathprepend /usr/local/opt/go/libexec/bin
+    pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
+fi
+
+# [iterm2] Enable iTerm 2 shell integration
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
-## [brew] fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [brew] autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-## [brew] fasd
-if type fasd > /dev/null 2>&1; then
-    eval "$(fasd --init auto)"
-fi
+# [brew] fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -4,23 +4,3 @@ export db="$HOME/Dropbox"
 # Common files
 export bp="$HOME/.bash_profile"
 export vrc="$HOME/.vimrc"
-
-# User /bin
-pathprepend "$HOME/Applications/bin"
-
-# Java 7
-#JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
-#export JAVA_HOME=${JAVA7_HOME}
-#export PATH=$JAVA_HOME/bin:$PATH
-
-# Java 8
-JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
-export JAVA_HOME="$JAVA8_HOME"
-pathprepend "$JAVA_HOME/bin"
-
-# Go
-GOPATH_PUBLIC="$HOME/Developer/go/public"
-GOPATH_PERSONAL="$HOME/Developer/go/personal"
-export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
-pathprepend /usr/local/opt/go/libexec/bin
-pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"

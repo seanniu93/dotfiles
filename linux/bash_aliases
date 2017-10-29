@@ -12,13 +12,6 @@ function lmv() {
     [ -e $1 -a -e $2 ] && mv $1 $2 && ln -s $2/$(basename $1) $(dirname $1);
 }
 
-# Force tmux to use 256 colors
-alias tmux='tmux -2'
-
-alias tma='tmux a -t'
-alias tmn='tmux new -s'
-alias tml='tmux ls'
-
 # Start ssh-agent and add default key
 alias ssh_add='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
 
