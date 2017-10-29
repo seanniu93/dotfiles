@@ -7,8 +7,10 @@
 
 - link:
     ~/.bash_aliases: bash_aliases
+    ~/.bash_logout: bash_logout
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.env_vars: osx/env_vars
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.ssh/config.default: ssh/config.default

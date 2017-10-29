@@ -1,0 +1,10 @@
+#####################
+# Platform Specific #
+#####################
+
+# Source platform specific configs
+if [ "$IS_OSX" == 1 ]; then
+    . "$HOME/.dotfiles/osx/env_vars"
+elif [ "$IS_LINUX" == 1 ]; then
+    . "$HOME/.dotfiles/linux/env_vars"
+fi
