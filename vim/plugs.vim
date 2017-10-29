@@ -20,8 +20,7 @@ endif
 "                         of the plugins
 call plug#begin('~/.vim/plugged')
 
-" ==== Vim Additions ==== "
-
+" ---- Vim Additions ----
 " Syntastic, integrates external syntax checkers
 Plug 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
@@ -53,9 +52,11 @@ Plug 'tpope/vim-surround'
 "   gciw - Toggle comment in word (or any other word object)
 Plug 'tpope/vim-commentary'
 
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
 
-" ==== Tool Integration ==== "
-
+" ---- Tool Integrations ----
+" Gitgutter, shows a git diff in the 'gutter'
 Plug 'airblade/vim-gitgutter'
 
 " Fugitive, adds Git features
@@ -70,10 +71,11 @@ endif
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files<CR>
 
-
-" ==== Programming Languages ==== "
-
+" ---- Programming Languages ----
 " Golang tools
 Plug 'fatih/vim-go'
+
+" ---- Color Schemes ----
+Plug 'chriskempson/vim-tomorrow-theme'
 
 call plug#end()

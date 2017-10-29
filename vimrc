@@ -18,14 +18,14 @@ endtry
 " EDITING
 "===============================================================================
 
-"---- Default tab settings ----
+" ---- Default tab settings ----
 set tabstop=4       " How big a tab is
 set softtabstop=4   " How many columns when tabbing
 set shiftwidth=4    " How many columns for re-indents
 set expandtab       " Turn tabs into spaces
 set smarttab        " Indent according to shiftwidth
 
-"---- Search settings ----
+" ---- Search settings ----
 set incsearch       " Do incremental searching
 set ignorecase      " Use case insensitive search
 set smartcase       " Except when search query has capital letters
@@ -47,28 +47,25 @@ set tabpagemax=100
 " VISUAL
 "===============================================================================
 
-"---- Command bar stuff ----
+" ---- Command bar stuff ----
 set ruler           " Show the cursor position all the time
 set number          " Show line numbers
 set showcmd         " Display incomplete commands
 set laststatus=2    " Always show status bar
-"set noshowmode     " Hide the default mode text
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " 'press <Enter> to continue'
 set cmdheight=2
 
-"---- Color Scheme ----
+" ---- Color Scheme ----
 try
-    colorscheme tomorrow-night-bright
-    "colorscheme molokai
-    "let g:molokai_original=1
+    colorscheme Tomorrow-Night-Bright
 catch
     " Colorscheme not installed
     set background=dark " For using vim with a dark background
 endtry
 
-"---- 80th column marker ----
+" ---- 80th column marker ----
 " Color names available at:
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "set textwidth=80  " Limits text to 80 chars per column
@@ -79,7 +76,7 @@ else
     autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-"---- Syntax highlighting ----
+" ---- Syntax highlighting ----
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -100,34 +97,34 @@ match ExtraWhitespace /\s\+$\| \+\ze\t/
 set listchars=tab:│·,trail:·,nbsp:·,precedes:←,extends:→
 let &showbreak='↪ '
 
-"---- Status line ----
+" ---- Status line ----
 " Resources:
 "   http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
 "   https://shapeshed.com/vim-statuslines/
-set statusline=
-set statusline+=%f            " filename (%t for tail only)
-set statusline+=\ %y          " filetype
-set statusline+=[%{&fileencoding?&fileencoding:&encoding},
-set statusline+=%{&fileformat}]
-set statusline+=%h            " help file flag
-set statusline+=%m            " modified flag
-set statusline+=%{fugitive#statusline()} " vim-fugitive
-set statusline+=%=            " left/right separator
-set statusline+=\[%{mode()}\] " current mode
-set statusline+=[%l:%c]       " cursor line:column
-set statusline+=[%P\ of\ %L]  " percent through file and total lines
+" set statusline=
+" set statusline+=%f            " filename (%t for tail only)
+" set statusline+=\ %y          " filetype
+" set statusline+=[%{&fileencoding?&fileencoding:&encoding},
+" set statusline+=%{&fileformat}]
+" set statusline+=%h            " help file flag
+" set statusline+=%m            " modified flag
+" set statusline+=%{fugitive#statusline()} " vim-fugitive
+" set statusline+=%=            " left/right separator
+" set statusline+=\[%{mode()}\] " current mode
+" set statusline+=[%l:%c]       " cursor line:column
+" set statusline+=[%P\ of\ %L]  " percent through file and total lines
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " Change the status line color based on mode
-if version >= 700
-    highlight statusLine cterm=bold ctermfg=black ctermbg=green
-    au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
-    au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
-endif
+" if version >= 700
+"     highlight statusLine cterm=bold ctermfg=black ctermbg=green
+"     au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
+"     au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
+" endif
 
 
 " BEHAVIOR
@@ -137,16 +134,15 @@ set history=50      " Keep 50 lines of command line history
 set wildmenu        " Better command-line completion
 set modeline        " If on, disallow insecure modeline
 set startofline     " If on, prevent resetting cursor to beginning of line
-"set clipboard=unnamed  " Use the system clipboard
 set autoread        " Automatically reread changed files
 
-"---- Code folding settings ----
+" ---- Code folding settings ----
 set foldenable          " Enable folding
 set foldlevelstart=10   " Open most fold by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " Fold based on indent level
 
-"---- Backup settings ----
+" ---- Backup settings ----
 "set backup                  " keep a backup file
 "set backupdir=~/.vim/backup " Set backup directory
 
@@ -235,7 +231,7 @@ noremap <silent> <C-L> :nohls<CR><C-L>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
-"---- Custom leader binds ----
+" ---- Custom leader binds ----
 
 " Save with less keystrokes
 nnoremap <leader>s :update<CR>
