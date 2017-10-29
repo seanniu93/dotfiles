@@ -7,5 +7,4 @@
 
 - link:
     ~/.bash_aliases: osx/bash_aliases
-    ~/.bash_profile: osx/bash_profile
     ~/.env_vars: osx/env_vars
