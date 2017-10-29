@@ -99,7 +99,7 @@ if [ -d "$HOME/.pyenv" ]; then
     eval "$(pyenv init -)"
 fi
 
-# Go
+# go
 if [ -d /usr/local/go ]; then
     GOPATH_PUBLIC="$HOME/Developer/go/public"
     GOPATH_PERSONAL="$HOME/Developer/go/personal"
@@ -107,6 +107,9 @@ if [ -d /usr/local/go ]; then
     pathprepend /usr/local/go/bin
     pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
 fi
+
+# rust
+pathprepend "$HOME/.cargo/bin"
 
 # autojump
 if [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]]; then
