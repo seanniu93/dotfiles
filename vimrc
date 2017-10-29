@@ -22,11 +22,11 @@ endtry
 set tabstop=4       " How big a tab is
 set softtabstop=4   " How many columns when tabbing
 set shiftwidth=4    " How many columns for re-indents
-set noexpandtab
-"set expandtab       " Turn tabs -> spaces
+set expandtab       " Turn tabs into spaces
+set smarttab        " Indent according to shiftwidth
 
 "---- Search settings ----
-set incsearch       " do incremental searching
+set incsearch       " Do incremental searching
 set ignorecase      " Use case insensitive search
 set smartcase       " Except when search query has capital letters
 
@@ -38,6 +38,7 @@ set whichwrap+=<,>,h,l,[,]
 
 " Formatting options
 set formatoptions+=r    " Automatically insert comment leader
+set formatoptions+=j    " Delete comment character when joining commented
 
 " Enable more tabs
 set tabpagemax=100
@@ -98,6 +99,12 @@ match ExtraWhitespace /\s\+$\| \+\ze\t/
 " Whitespace character symmbols. :set list! to toggle visibility
 set listchars=tab:│·,trail:·,nbsp:·,precedes:←,extends:→
 let &showbreak='↪ '
+
+" Status line
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 
 " BEHAVIOR

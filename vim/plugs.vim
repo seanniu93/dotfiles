@@ -22,17 +22,36 @@ call plug#begin('~/.vim/plugged')
 
 " ==== Vim Additions ==== "
 
-" NERD Commenter, quickly toggle comments
-" For all documentation see `:help nerdcommenter
-" Usage: All commands can have a [count] prefix and starts with the <leader> key
-"   cc       - Comment out line
-"   c<space> - Toggle comment
-"   ci       - Invert comment
-Plug 'scrooloose/nerdcommenter'
+" Syntastic, integrates external syntax checkers
+Plug 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" Additional statusline changes are in the vimrc
 
 " Undotree, visualizes the Vim undo tree
 Plug 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
+
+" Sleuth.vim, automatically adjust 'shiftwidth' and 'expandtab'
+Plug 'tpope/vim-sleuth'
+
+" Repeat.vim, lets entire plugin commands be repeated
+Plug 'tpope/vim-repeat'
+
+" Surround.vim, provides mappings to modify pairs of quotes, {[(, tags, and more
+" Examples:
+"   cs"'  - Change " to '
+"   ds"   - Delete "
+"   ysiw" - Surround word with "
+Plug 'tpope/vim-surround'
+
+" Commentary.vim, quickly toggle comments
+" Usage:
+"   gcc  - Toggle comment on line
+"   gciw - Toggle comment in word (or any other word object)
+Plug 'tpope/vim-commentary'
 
 
 " ==== Tool Integration ==== "
