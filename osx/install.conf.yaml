@@ -6,5 +6,4 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_aliases: osx/bash_aliases
     ~/.env_vars: osx/env_vars

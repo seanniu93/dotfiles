@@ -6,5 +6,4 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_aliases: linux/bash_aliases
     ~/.bash_logout: linux/bash_logout
