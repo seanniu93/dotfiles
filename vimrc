@@ -100,11 +100,34 @@ match ExtraWhitespace /\s\+$\| \+\ze\t/
 set listchars=tab:│·,trail:·,nbsp:·,precedes:←,extends:→
 let &showbreak='↪ '
 
-" Status line
+"---- Status line ----
+" Resources:
+"   http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
+"   https://shapeshed.com/vim-statuslines/
+set statusline=
+set statusline+=%f            " filename (%t for tail only)
+set statusline+=\ %y          " filetype
+set statusline+=[%{&fileencoding?&fileencoding:&encoding},
+set statusline+=%{&fileformat}]
+set statusline+=%h            " help file flag
+set statusline+=%m            " modified flag
+set statusline+=%{fugitive#statusline()} " vim-fugitive
+set statusline+=%=            " left/right separator
+set statusline+=\[%{mode()}\] " current mode
+set statusline+=[%l:%c]       " cursor line:column
+set statusline+=[%P\ of\ %L]  " percent through file and total lines
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" Change the status line color based on mode
+if version >= 700
+	highlight statusLine cterm=bold ctermfg=black ctermbg=green
+	au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
+	au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
+endif
 
 
 " BEHAVIOR
@@ -115,6 +138,7 @@ set wildmenu        " Better command-line completion
 set modeline        " If on, disallow insecure modeline
 set startofline     " If on, prevent resetting cursor to beginning of line
 "set clipboard=unnamed  " Use the system clipboard
+set autoread        " Automatically reread changed files
 
 "---- Code folding settings ----
 set foldenable          " Enable folding
@@ -126,12 +150,19 @@ set foldmethod=indent   " Fold based on indent level
 "set backup                  " keep a backup file
 "set backupdir=~/.vim/backup " Set backup directory
 
+" Enable persistent undo so that undo history persists across vim sessions
+if has('persistent_undo')
+	set undofile
+	set undodir=~/.vim/undo
+	silent call system('mkdir -p ' . &undodir)
+endif
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
 	set mouse=a
 endif
 
-"---- Set default splitting behavior ----
+" Set default splitting behavior
 set splitbelow
 set splitright
 
@@ -211,6 +242,9 @@ nnoremap <leader>s :update<CR>
 
 " Save with less keystrokes, and also trim whitespace
 "nnoremap <leader>s :%s/\s\+$/<CR>:update<CR>
+
+" Toggle paste mode
+nnoremap <leader>v :set paste!<CR>:set paste?<CR>
 
 " Save session
 nnoremap <leader>S :mksession! Session.vim<CR>
