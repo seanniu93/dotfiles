@@ -246,7 +246,7 @@ nnoremap <leader>v :set paste!<CR>:set paste?<CR>
 nnoremap <leader>S :mksession! Session.vim<CR>
 
 " Show listchars
-nnoremap <leader>l :set list!<CR>
+nnoremap <leader>l :set list!<CR>:set list?<CR>
 
 
 " COMMANDS and FUNCTIONS
