@@ -24,6 +24,7 @@ set softtabstop=4   " How many columns when tabbing
 set shiftwidth=4    " How many columns for re-indents
 set expandtab       " Turn tabs into spaces
 set smarttab        " Indent according to shiftwidth
+set autoindent      " Copy indent from line above
 
 " ---- Search settings ----
 set incsearch       " Do incremental searching
@@ -188,8 +189,6 @@ if has("autocmd")
         \ endif
 
     augroup END
-else
-    set autoindent      " always set autoindenting on
 endif " has("autocmd")
 
 " Instead of failing a command because of unsaved changes, instead raise a
