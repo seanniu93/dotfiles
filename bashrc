@@ -61,6 +61,8 @@ HISTFILESIZE=64000
 HISTCONTROL=ignoreboth
 HISTTIMEFORMAT="[%F %T %z] "
 shopt -s histappend # Append to the history file, don't overwrite it
+HISTIGNORE="ls:ll:lla:pwd:hist:history*:fg:clear:reset:tm:tm *:\
+git st:git graph:git fancy:git diff:git precommit"
 
 # Share history between sessions
 case $PROMPT_COMMAND in
