@@ -8,6 +8,7 @@
 	# SVN-like
 	st = status
 	ci = commit
+	civ = commit --verbose
 
 	# More readable git aliases
 	# Credit: http://gggritso.com/human-git-aliases
