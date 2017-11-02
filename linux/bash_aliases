@@ -15,4 +15,10 @@ alias list_packages='dpkg --get-selections | grep -v deinstall'
 
 if [ "$DISTRO" == 'Raspbian' ]; then
     alias pitemp='/opt/vc/bin/vcgencmd measure_temp'
+
+    # Turn off hardware to conserve power
+    # WARNING: USE AT YOUR YOUR OWN RISK
+    # See: https://raspberrypi.stackexchange.com/a/47840
+    alias hdmi_off='/opt/vc/bin/tvservice -o'
+    alias hdmi_on='/opt/vc/bin/tvservice -p'
 fi
