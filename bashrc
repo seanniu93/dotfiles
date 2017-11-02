@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Determine OS and distribution
 export IS_OSX=0
 export IS_LINUX=0

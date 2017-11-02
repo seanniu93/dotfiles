@@ -97,6 +97,7 @@ fi
 if [ -d "$HOME/.pyenv" ]; then
     pathprepend "$HOME/.pyenv/bin"
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 # go
