@@ -16,6 +16,18 @@ alias tml='tmux ls'
 alias tma='tmux a -t'
 alias tmn='tmux new -s'
 
+alias rsync_replace='rsync -rtuvh --delete --stats --progress'
+
+# Start ssh-agent and add default key
+alias ssh_add='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
+
+alias hist='history | less +G'
+
+
+#############
+# Functions #
+#############
+
 # Combined function for tmux list, attach, and new
 tm() {
     if [[ "$#" == 0 ]]; then
@@ -26,16 +38,6 @@ tm() {
         echo "tm only takes 0 or 1 arguments"
     fi
 }
-
-alias rsync_replace='rsync -rtuvh --delete --stats --progress'
-
-# Start ssh-agent and add default key
-alias ssh_add='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
-
-
-#############
-# Functions #
-#############
 
 count_files() {
     find "${1:-.}" -type f | wc -l
