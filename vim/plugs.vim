@@ -81,6 +81,6 @@ nnoremap <C-p> :Files<CR>
 Plug 'fatih/vim-go'
 
 " ---- Color Schemes ----
-Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'tomasr/molokai'
 
 call plug#end()

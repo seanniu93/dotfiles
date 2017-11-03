@@ -60,7 +60,7 @@ set cmdheight=2
 
 " ---- Color Scheme ----
 try
-    colorscheme Tomorrow-Night-Bright
+    colorscheme molokai
 catch
     " Colorscheme not installed
     set background=dark " For using vim with a dark background
