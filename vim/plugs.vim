@@ -28,6 +28,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " Additional statusline changes are in the vimrc
+" Prefer vim-go for syntax checking
+let g:syntastic_mode_map = { "passive_filetypes": ["go"] }
 
 " Undotree, visualizes the Vim undo tree
 Plug 'mbbill/undotree'
