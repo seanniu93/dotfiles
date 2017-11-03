@@ -55,10 +55,6 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-set number relativenumber
-nnoremap <leader>r :set number relativenumber!<CR>
-
 " ---- Tool Integrations ----
 " Gitgutter, shows a git diff in the 'gutter'
 Plug 'airblade/vim-gitgutter'

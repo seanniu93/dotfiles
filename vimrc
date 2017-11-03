@@ -247,6 +247,9 @@ nnoremap <leader>S :mksession! Session.vim<CR>
 " Show listchars
 nnoremap <leader>l :set list!<CR>:set list?<CR>
 
+" Toggle relative line numbers
+nnoremap <leader>r :set number relativenumber!<CR>
+
 
 " COMMANDS and FUNCTIONS
 "===============================================================================
