@@ -77,6 +77,14 @@ nnoremap <C-p> :Files<CR>
 " ---- Programming Languages ----
 " Golang tools
 Plug 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 
 " ---- Color Schemes ----
 Plug 'tomasr/molokai'
