@@ -164,7 +164,7 @@ set splitbelow
 set splitright
 
 " Allow edited buffers to be in non-visible buffers
-"set hidden
+set hidden
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
