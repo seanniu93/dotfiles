@@ -31,6 +31,10 @@ let g:syntastic_check_on_wq = 0
 " Prefer vim-go for syntax checking
 let g:syntastic_mode_map = { "passive_filetypes": ["go"] }
 
+" YouCompleteMe, provides semantic autocompletion
+" Installation is manual. See https://github.com/valloric/youcompleteme
+Plug 'valloric/youcompleteme'
+
 " Undotree, visualizes the Vim undo tree
 Plug 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
