@@ -15,6 +15,7 @@ alias list_packages='dpkg --get-selections | grep -v deinstall'
 
 if [ "$DISTRO" == 'Raspbian' ]; then
     alias pitemp='/opt/vc/bin/vcgencmd measure_temp'
+    alias pitemp_loop='while true; do pitemp; sleep 10; done'
 
     # Turn off hardware to conserve power
     # WARNING: USE AT YOUR YOUR OWN RISK
