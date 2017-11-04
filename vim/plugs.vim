@@ -33,7 +33,9 @@ let g:syntastic_mode_map = { "passive_filetypes": ["go"] }
 
 " YouCompleteMe, provides semantic autocompletion
 " Installation is manual. See https://github.com/valloric/youcompleteme
-Plug 'valloric/youcompleteme'
+if $VIM_ENABLE_YCM == '1' && (has('python') || has('python3'))
+    Plug 'valloric/youcompleteme'
+endif
 
 " Undotree, visualizes the Vim undo tree
 Plug 'mbbill/undotree'
