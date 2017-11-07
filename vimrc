@@ -250,6 +250,10 @@ nnoremap <leader>l :set list!<CR>:set list?<CR>
 " Toggle relative line numbers
 nnoremap <leader>r :set number relativenumber!<CR>
 
+" Switch buffers with <Tab>. Use <C-I> for original <Tab> mapping
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
 
 " COMMANDS and FUNCTIONS
 "===============================================================================
