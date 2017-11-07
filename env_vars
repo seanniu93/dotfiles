@@ -1,3 +1,12 @@
+#!/usr/bin/env bash
+
+# Common files
+export vrc="$HOME/.vimrc"
+
+# Enable vim YouCompleteMe plugin
+export VIM_ENABLE_YCM=1
+
+
 #####################
 # Platform Specific #
 #####################

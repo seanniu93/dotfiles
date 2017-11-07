@@ -1,9 +1,6 @@
+#!/usr/bin/env bash
+
 # Common folders
 export db="$HOME/Dropbox"
 
 # Common files
-export bp="$HOME/.bash_profile"
-export vrc="$HOME/.vimrc"
-
-# Enable vim YouCompleteMe plugin
-export VIM_ENABLE_YCM=1
