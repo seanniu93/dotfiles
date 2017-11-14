@@ -23,6 +23,8 @@ alias ssh_add='eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa'
 
 alias hist='history | less +G'
 
+alias reload_bashrc='time . ~/.bashrc'
+
 
 #############
 # Functions #
