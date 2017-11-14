@@ -1,6 +1,9 @@
 !.gitignore
 
+/vim/.netrwhist
 /vim/autoload/plug.vim
 /vim/autoload/plug.vim.old
+/vim/cache/
 /vim/plugged/
+/vim/sessions/
 /vim/undo/

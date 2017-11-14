@@ -48,7 +48,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-repeat'
 
 " Surround.vim, provides mappings to modify pairs of quotes, {[(, tags, and more
-" Examples:
+" Usage:
 "   cs"'  - Change " to '
 "   ds"   - Delete "
 "   ysiw" - Surround word with "
@@ -63,9 +63,15 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
+" Session, session management
+" Usage: SaveSession, OpenSession, RestartVim, CloseSession, DeleteSession
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+let g:session_autosave = 'no'
+
 " ---- Tool Integrations ----
-" Gitgutter, shows a git diff in the 'gutter'
-Plug 'airblade/vim-gitgutter'
+" Signify, show diffs in the gutter for multiple VCSs.
+Plug 'mhinz/vim-signify'
 
 " Fugitive, adds Git features
 Plug 'tpope/vim-fugitive'
@@ -91,6 +97,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
+
+" MatchTagAlways, highlight matching tags in HTML and XML
+Plug 'Valloric/MatchTagAlways'
 
 " ---- Color Schemes ----
 Plug 'tomasr/molokai'
