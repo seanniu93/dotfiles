@@ -12,10 +12,6 @@ alias lla="ls -lAF"
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
 
-alias tml='tmux ls'
-alias tma='tmux a -t'
-alias tmn='tmux new -s'
-
 alias rsync_replace='rsync -rtuvh --delete --stats --progress'
 
 # Start ssh-agent and add default key
@@ -40,6 +36,19 @@ tm() {
         echo "tm only takes 0 or 1 arguments"
     fi
 }
+
+# Make grid of N tmux panes
+tile() {
+    if [[ "$#" == 1 ]]; then
+        for ((n=1;n<$1;n++)); do
+            tmux split-window
+            tmux select-layout tiled
+        done
+    else
+        echo "tile takes 1 numeric argument"
+    fi
+}
+
 
 count_files() {
     find "${1:-.}" -type f | wc -l

@@ -8,6 +8,10 @@
 # Credit: StackOverflow
 alias list_packages='dpkg --get-selections | grep -v deinstall'
 
+# Write and read system clipboard
+alias toclip='xclip -selection c'
+alias fromclip='xclip -selection c -o'
+
 
 #####################
 # Raspberry Pi ONLY #
