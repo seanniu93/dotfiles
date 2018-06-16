@@ -1,3 +1,16 @@
+# bash configuation source order
+#
+# 1. bash_profile (contains no config)
+# 2. bashrc
+#    a. linux/bashrc
+#    b. osx/bash_profile
+# 3. bash_aliases
+#    a. linux/bash_aliases
+#    b. osx/bash_aliases
+# 4. env_vars
+#    a. linux/env_vars
+#    b. osx/env_vars
+
 # Determine OS and distribution
 export IS_OSX=0
 export IS_LINUX=0
@@ -11,6 +24,9 @@ elif [ "$(uname -s)" == "Linux" ]; then
          DISTRO='Raspbian'
     fi
 fi
+
+# Print the command before running. Useful for scripts
+echo_and_run() { echo "\$ $@" ; "$@" ; }
 
 # Append and prepend to $PATH
 # See: https://superuser.com/a/753948
