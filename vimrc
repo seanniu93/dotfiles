@@ -45,7 +45,11 @@ set formatoptions+=j    " Delete comment character when joining commented
 set tabpagemax=100
 
 " Use system clipboard by default
-set clipboard=unnamedplus
+if has('unnamedplus')
+    set clipboard^=unnamedplus
+elseif has('clipboard')
+    set clipboard^=unnamed
+endif
 
 
 " VISUAL
