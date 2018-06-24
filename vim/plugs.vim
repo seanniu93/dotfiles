@@ -98,6 +98,10 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
+" Rust tools
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+
 " MatchTagAlways, highlight matching tags in HTML and XML
 Plug 'Valloric/MatchTagAlways'
 
