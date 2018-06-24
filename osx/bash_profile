@@ -73,6 +73,9 @@ if [ -d /usr/local/opt/go ]; then
     pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
 fi
 
+# Rust
+pathprepend "$HOME/.cargo/bin"
+
 # [iterm2] Enable iTerm 2 shell integration
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
