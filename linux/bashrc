@@ -100,6 +100,9 @@ if [ -d "$HOME/.pyenv" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# pip install --user
+pathprepend "$HOME/.local/bin"
+
 # go
 if [ -d /usr/local/go ]; then
     GOPATH_PUBLIC="$HOME/Developer/go/public"
