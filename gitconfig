@@ -5,10 +5,11 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 [alias]
-	# SVN-like
+	# Shorter common commands
 	st = status
 	ci = commit
 	civ = commit --verbose
+	co = checkout
 
 	# More readable git aliases
 	# Credit: http://gggritso.com/human-git-aliases
