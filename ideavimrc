@@ -1,0 +1,31 @@
+set ignorecase      " Use case insensitive search
+set smartcase       " Except when search query has capital letters
+
+" Use system clipboard by default
+set clipboard=unnamedplus
+
+" Adapted from: https://stackoverflow.com/a/33988035
+nnoremap <leader>a :action $SelectAll<CR>
+nnoremap <leader>b :action GotoDeclaration<CR>
+nnoremap <leader>c :action $Copy<CR>
+nnoremap <leader>d :action EditorDuplicate<CR>
+nnoremap <leader>e :action RecentFiles<CR>
+nnoremap <leader>f :action Find<CR>
+nnoremap <leader>g :action GotoLine<CR>
+nnoremap <leader>h :action TypeHierarchy<CR>
+nnoremap <leader>i :action ImplementMethods<CR>
+nnoremap <leader>m :action EditorScrollToCenter<CR>
+nnoremap <leader>n :action FileChooser.NewFolder<CR>
+nnoremap <leader>o :action OverrideMethods<CR>
+nnoremap <leader>p :action ParameterInfo<CR>
+nnoremap <leader>q :action QuickJavaDoc<CR>
+nnoremap <leader>r :action Replace<CR>
+nnoremap <leader>s :action SaveAll<CR>
+nnoremap <leader>t :action Vcs.UpdateProject<CR>
+nnoremap <leader>u :action GotoSuperMethod<CR>
+nnoremap <leader>v :action $Paste<CR>
+nnoremap <leader>w :action EditorSelectWord<CR>
+nnoremap <leader>x :action $Cut<CR>
+nnoremap <leader>y :action EditorDeleteLine<CR>
+nnoremap <leader>[ :action EditorCodeBlockStart<CR>
+nnoremap <leader>] :action EditorCodeBlockEnd<CR>
