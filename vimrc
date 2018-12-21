@@ -80,6 +80,7 @@ endtry
 if exists('+colorcolumn')  " Only in Vim 7.3+
     let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
     highlight ColorColumn ctermbg=234 guibg=#1c1c1c
+    autocmd FileType qf setlocal colorcolumn=   " Except quickfix window
 else
     autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -222,7 +223,7 @@ nnoremap Y y$
 " This unsets the 'last search pattern' register by hitting return
 "nnoremap <CR> :noh<CR><CR>
 
-" Map <C-L> (redraw screen) to also turn off search highlightin
+" Map <C-L> (redraw screen) to also turn off search highlighting
 noremap <silent> <C-L> :nohls<CR><C-L>
 
 " Shortcuts for split views (nnoremap = nonrecursive, normal mode)
