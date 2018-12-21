@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
 " ---- Vim Additions ----
 " Syntastic, integrates external syntax checkers
 Plug 'vim-syntastic/syntastic'
+" Recommended settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -62,6 +63,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
 
 " Session, session management
 " Usage: SaveSession, OpenSession, RestartVim, CloseSession, DeleteSession
