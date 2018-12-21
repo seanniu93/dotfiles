@@ -50,7 +50,7 @@ tile() {
 }
 
 
-count_files() {
+count_files_here() {
     find "${1:-.}" -type f | wc -l
 }
 
