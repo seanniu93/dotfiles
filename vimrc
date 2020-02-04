@@ -68,6 +68,10 @@ set cmdheight=2
 " ---- Color Scheme ----
 try
     colorscheme molokai
+    " Red/green diff colors in git commit message editor
+    " See: https://github.com/tomasr/molokai/issues/36#issuecomment-234142007
+    hi diffAdded   ctermfg=46  cterm=NONE guifg=#2BFF2B gui=NONE
+    hi diffRemoved ctermfg=196 cterm=NONE guifg=#FF2B2B gui=NONE
 catch
     " Colorscheme not installed
     set background=dark " For using vim with a dark background
@@ -78,7 +82,13 @@ endtry
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "set textwidth=80  " Limits text to 80 chars per column
 if exists('+colorcolumn')  " Only in Vim 7.3+
-    let &colorcolumn=join(range(81,256),",")    " Marks colum 81 and so on.
+    if expand('%:t')  =~ ".java"
+      let rulerStart=101
+    else
+      let rulerStart=81
+    endif
+
+    let &colorcolumn=join(range(rulerStart,256),",") " Marks column 81 and so on
     highlight ColorColumn ctermbg=234 guibg=#1c1c1c
     autocmd FileType qf setlocal colorcolumn=   " Except quickfix window
 else
@@ -93,6 +103,11 @@ if &t_Co > 2 || has("gui_running")
         syntax enable
     endif
     set hlsearch
+endif
+
+" Don't enable highlighting in diff mode.
+if &diff
+  syntax off
 endif
 
 " Folding color
