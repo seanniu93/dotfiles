@@ -62,6 +62,12 @@ lnmv() {
 
 treec() { tree -I ".git" -Ca "$@" | less -R; }
 
+# Usage: mkfile path/to/file newfile.txt
+#            note the space ^
+mkfile() {
+  mkdir -p -- "$1" && touch -- "$1"/"$2"
+}
+
 
 #####################
 # Platform Specific #
