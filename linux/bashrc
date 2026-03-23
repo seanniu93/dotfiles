@@ -138,3 +138,8 @@ command -v rg >/dev/null 2>&1 && \
 if [ -f /usr/bin/keychain ]; then
     alias start_keychain='eval `keychain --eval --agents ssh id_rsa`'
 fi
+
+# homebrew
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+fi
