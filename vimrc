@@ -223,9 +223,6 @@ nnoremap <leader>s :update<CR>
 " Toggle paste mode
 nnoremap <leader>v :set paste!<CR>:set paste?<CR>
 
-" Save session
-nnoremap <leader>S :mksession! Session.vim<CR>
-
 " Show listchars
 nnoremap <leader>l :set list!<CR>:set list?<CR>
 

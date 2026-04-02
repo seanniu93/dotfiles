@@ -28,6 +28,13 @@ let g:ale_linters = { 'go': ['gopls'] }
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
 let g:ale_fix_on_save = 1
 
+" Jump to previous lint error/warning
+nnoremap <silent> <leader>k <Plug>(ale_previous_wrap)
+" Jump to next lint error/warning
+nnoremap <silent> <leader>j <Plug>(ale_next_wrap)
+" Show full detail of the current lint error/warning
+nnoremap <silent> <leader>d :ALEDetail<CR>
+
 " Undotree, visualizes the Vim undo tree
 Plug 'mbbill/undotree'
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -60,6 +67,8 @@ let g:airline#extensions#ale#enabled = 1
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 let g:session_autosave = 'no'
+" Save current session to Session.vim
+nnoremap <leader>S :mksession! Session.vim<CR>
 
 " ---- Tool Integrations ----
 " Signify, show diffs in the gutter for multiple VCSs.
