@@ -38,9 +38,13 @@ prompt
 # Program Settings #
 ####################
 
+if type brew > /dev/null 2>&1; then
+    export BREW_PREFIX=$(brew --prefix)
+fi
+
 # [brew] Enable bash-completion2
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-    . $(brew --prefix)/share/bash-completion/bash_completion
+if [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ]; then
+    . "$BREW_PREFIX/share/bash-completion/bash_completion"
 fi
 
 # Set PATH so it includes user's private bin if it exists
@@ -68,12 +72,15 @@ if type pyenv > /dev/null 2>&1; then
 fi
 
 # Go
-if [ -d /usr/local/opt/go ]; then
-    GOPATH_PUBLIC="$HOME/Developer/go/public"
-    GOPATH_PERSONAL="$HOME/Developer/go/personal"
-    export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
-    pathprepend /usr/local/opt/go/libexec/bin
-    pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
+if type brew > /dev/null 2>&1; then
+    BREW_GO_PREFIX=$(brew --prefix go)
+    if [ -d "$BREW_GO_PREFIX" ]; then
+        GOPATH_PUBLIC="$HOME/Developer/go/public"
+        GOPATH_PERSONAL="$HOME/Developer/go/personal"
+        export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
+        pathprepend "$BREW_GO_PREFIX/libexec/bin"
+        pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
+    fi
 fi
 
 # Rust
@@ -83,12 +90,17 @@ pathprepend "$HOME/.cargo/bin"
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
 # [brew] autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+if [[ -n "$BREW_PREFIX" && -s "$BREW_PREFIX/etc/autojump.sh" ]]; then
+    . "$BREW_PREFIX/etc/autojump.sh"
+fi
 
 # [brew] fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # [brew] keychain
-if [ -f /usr/local/bin/keychain ]; then
-    alias start_keychain='eval `keychain --eval --agents ssh id_rsa`'
+if [[ -n "$BREW_PREFIX" ]]; then
+    BREW_KEYCHAIN="$BREW_PREFIX/bin/keychain"
+    if [ -f "$BREW_KEYCHAIN" ]; then
+        alias start_keychain='eval `'"$BREW_KEYCHAIN"' --eval --agents ssh id_rsa`'
+    fi
 fi
