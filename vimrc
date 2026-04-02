@@ -1,8 +1,6 @@
 " Vim settings for Linux
 "===============================================================================
 
-set nocompatible    " Use Vim settings instead of Vi
-
 
 " PLUGINS
 "===============================================================================
@@ -81,29 +79,19 @@ endtry
 " Color names available at:
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "set textwidth=80  " Limits text to 80 chars per column
-if exists('+colorcolumn')  " Only in Vim 7.3+
-    if expand('%:t')  =~ ".java"
-      let rulerStart=101
-    else
-      let rulerStart=81
-    endif
-
-    let &colorcolumn=join(range(rulerStart,256),",") " Marks column 81 and so on
-    highlight ColorColumn ctermbg=234 guibg=#1c1c1c
-    autocmd FileType qf setlocal colorcolumn=   " Except quickfix window
+if expand('%:t')  =~ ".java"
+  let rulerStart=101
 else
-    autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  let rulerStart=81
 endif
+
+let &colorcolumn=join(range(rulerStart,256),",") " Marks column 81 and so on
+highlight ColorColumn ctermbg=234 guibg=#1c1c1c
+autocmd FileType qf setlocal colorcolumn=   " Except quickfix window
 
 " ---- Syntax highlighting ----
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-    if !exists("g:syntax_on")
-        syntax enable
-    endif
-    set hlsearch
-endif
+syntax enable
+set hlsearch
 
 " Don't enable highlighting in diff mode.
 if &diff
@@ -120,35 +108,6 @@ match ExtraWhitespace /\s\+$\| \+\ze\t/
 " Whitespace character symmbols. :set list! to toggle visibility
 set listchars=tab:│·,trail:·,nbsp:·,precedes:←,extends:→
 let &showbreak='↪ '
-
-" ---- Status line ----
-" Resources:
-"   http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
-"   https://shapeshed.com/vim-statuslines/
-" set statusline=
-" set statusline+=%f            " filename (%t for tail only)
-" set statusline+=\ %y          " filetype
-" set statusline+=[%{&fileencoding?&fileencoding:&encoding},
-" set statusline+=%{&fileformat}]
-" set statusline+=%h            " help file flag
-" set statusline+=%m            " modified flag
-" set statusline+=%{fugitive#statusline()} " vim-fugitive
-" set statusline+=%=            " left/right separator
-" set statusline+=\[%{mode()}\] " current mode
-" set statusline+=[%l:%c]       " cursor line:column
-" set statusline+=[%P\ of\ %L]  " percent through file and total lines
-
-" Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" Change the status line color based on mode
-" if version >= 700
-"     highlight statusLine cterm=bold ctermfg=black ctermbg=green
-"     au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
-"     au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=red
-" endif
 
 
 " BEHAVIOR

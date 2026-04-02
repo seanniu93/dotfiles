@@ -21,22 +21,12 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " ---- Vim Additions ----
-" Syntastic, integrates external syntax checkers
-Plug 'vim-syntastic/syntastic'
+" ALE (Asynchronous Lint Engine), integrates external syntax checkers
+Plug 'dense-analysis/ale'
 " Recommended settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" Additional statusline changes are in the vimrc
-" Prefer vim-go for syntax checking
-let g:syntastic_mode_map = { "passive_filetypes": ["go"] }
-
-" YouCompleteMe, provides semantic autocompletion
-" Installation is manual. See https://github.com/valloric/youcompleteme
-if $VIM_ENABLE_YCM == '1' && (has('python') || has('python3'))
-    Plug 'valloric/youcompleteme'
-endif
+let g:ale_linters = { 'go': ['gopls'] }
+let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
+let g:ale_fix_on_save = 1
 
 " Undotree, visualizes the Vim undo tree
 Plug 'mbbill/undotree'
@@ -63,7 +53,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Session, session management
 " Usage: SaveSession, OpenSession, RestartVim, CloseSession, DeleteSession
@@ -81,6 +71,8 @@ Plug 'tpope/vim-fugitive'
 " Fzf
 if !empty(glob('/usr/local/opt/fzf/plugin/fzf.vim'))
     Plug '/usr/local/opt/fzf'
+elseif !empty(glob('/opt/homebrew/opt/fzf/plugin/fzf.vim'))
+    Plug '/opt/homebrew/opt/fzf'
 else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf',
                 \ 'do': './install --all --no-update-rc --no-zsh --no-fish' }
