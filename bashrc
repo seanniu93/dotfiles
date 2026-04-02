@@ -15,13 +15,13 @@
 export IS_OSX=0
 export IS_LINUX=0
 export DISTRO=
-if [ "$(uname -s)" == "Darwin" ]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
     IS_OSX=1
-elif [ "$(uname -s)" == "Linux" ]; then
+elif [[ "$(uname -s)" == "Linux" ]]; then
     IS_LINUX=1
-    distro_text=$(cat /etc/*-release 2>/dev/null)
-    if echo "$distro_text" | grep --quiet 'Raspbian'; then
-         DISTRO='Raspbian'
+    if [[ -f /etc/os-release ]]; then
+        . /etc/os-release
+        DISTRO=$NAME
     fi
 fi
 
