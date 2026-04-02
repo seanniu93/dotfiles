@@ -105,8 +105,10 @@ let g:go_highlight_variable_assignments = 1
 Plug 'rust-lang/rust.vim'
 let g:rustfmt_autosave = 1
 
-" MatchTagAlways, highlight matching tags in HTML and XML
-Plug 'Valloric/MatchTagAlways'
+" vim-matchup, even better matching and highlighting for tags and blocks
+Plug 'andymass/vim-matchup'
+let g:matchup_matchparen_enabled = 1
+let g:matchup_matchparen_deferred = 1
 
 " ---- Color Schemes ----
 Plug 'tomasr/molokai'
