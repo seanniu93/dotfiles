@@ -1,3 +1,5 @@
+# COPY THIS FILE TO ~/.ssh/config
+
 # This causes ssh to use the existing connection
 # rather than opening new ones.
 Host *
