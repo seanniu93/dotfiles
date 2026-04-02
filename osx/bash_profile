@@ -51,14 +51,14 @@ fi
 pathprepend "$HOME/Applications/bin"
 
 # Java 7
-#JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
-#export JAVA_HOME=${JAVA7_HOME}
-#export PATH=$JAVA_HOME/bin:$PATH
+# JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+# export JAVA_HOME=${JAVA7_HOME}
+# export PATH=$JAVA_HOME/bin:$PATH
 
 # Java 8
-JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
-export JAVA_HOME="$JAVA8_HOME"
-pathprepend "$JAVA_HOME/bin"
+# JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+# export JAVA_HOME="$JAVA8_HOME"
+# pathprepend "$JAVA_HOME/bin"
 
 # [brew] Initialize rbenv to enable shims and autocompletion
 if type rbenv > /dev/null 2>&1; then
@@ -84,7 +84,9 @@ if type brew > /dev/null 2>&1; then
 fi
 
 # Rust
-pathprepend "$HOME/.cargo/bin"
+if [ -d "$HOME/.cargo/bin" ]; then
+    pathprepend "$HOME/.cargo/bin"
+fi
 
 # [iterm2] Enable iTerm 2 shell integration
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
@@ -103,4 +105,14 @@ if [[ -n "$BREW_PREFIX" ]]; then
     if [ -f "$BREW_KEYCHAIN" ]; then
         alias start_keychain='eval `'"$BREW_KEYCHAIN"' --eval --agents ssh id_rsa`'
     fi
+fi
+
+# Sublime Text
+if [ -d "/Applications/Sublime Text.app" ]; then
+    pathprepend "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+fi
+
+# OpenClaw completion
+if [ -f "$HOME/.openclaw/completions/openclaw.bash" ]; then
+    source "$HOME/.openclaw/completions/openclaw.bash"
 fi
