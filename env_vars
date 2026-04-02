@@ -17,3 +17,8 @@ if [ "$IS_OSX" == 1 ]; then
 elif [ "$IS_LINUX" == 1 ]; then
     . "$HOME/.dotfiles/linux/env_vars"
 fi
+
+# Source secrets if they exist
+if [[ -f "$HOME/.env_vars.secret" ]]; then
+    . "$HOME/.env_vars.secret"
+fi
