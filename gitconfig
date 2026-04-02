@@ -1,58 +1,63 @@
 [user]
-	name = Sean Niu
-	email = seanniu93@gmail.com
+    name = Sean Niu
+    email = seanniu93@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
+    excludesfile = ~/.gitignore_global
+    editor = vim
 [alias]
-	# Shorter common commands
-	st = status
-	ci = commit
-	civ = commit --verbose
-	co = checkout
+    # Shorter common commands
+    st = status
+    ci = commit
+    civ = commit --verbose
+    co = checkout
 
-	# More readable git aliases
-	# Credit: http://gggritso.com/human-git-aliases
+    # More readable git aliases
+    # Credit: http://gggritso.com/human-git-aliases
 
-	# Consistent listing
-	branches = branch -a
-	tags = tag
-	stashes = stash list
-	remotes = remote -v
-	aliases = config --get-regexp ^alias\\.
+    # Consistent listing
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+    aliases = config --get-regexp ^alias\\.
 
-	# Staging
-	unstage = reset -q HEAD --
-	discard = checkout --
-	uncommit = reset --mixed HEAD~
-	amend = commit --amend
-	nevermind = !git reset --hard HEAD && git clean -d -f
-	precommit = diff --cached --diff-algorithm=minimal -w
-	unmerged = diff --name-only --diff-filter=U
-	untrack = rm --cached
+    # Staging
+    unstage = reset -q HEAD --
+    discard = checkout --
+    uncommit = reset --mixed HEAD~
+    amend = commit --amend
+    nevermind = !git reset --hard HEAD && git clean -d -f
+    precommit = diff --cached --diff-algorithm=minimal -w
+    unmerged = diff --name-only --diff-filter=U
+    untrack = rm --cached
 
-	# Finding
-	whenadded = log --diff-filter=A
+    # Finding
+    whenadded = log --diff-filter=A
 
-	# Log formats
-	fancy = log --graph \
-		--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
-		--abbrev-commit --date=relative
-	graph = log --graph -10 --branches --remotes --tags \
-		--format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' \
-		--date-order
-	graphall = log --graph --branches --remotes --tags \
-		--format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' \
-		--date-order
+    # Log formats
+    fancy = log --graph \
+        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
+        --abbrev-commit --date=relative
+
+    graph = log --graph -10 --branches --remotes --tags \
+        --format='%Cgreen%h %Creset• %<(75,trunc)%s (%aN, %cr) %Cred%d' \
+        --date-order
+
+    graphall = log --graph --branches --remotes --tags \
+        --format='%Cgreen%h %Creset• %<(75,trunc)%s (%aN, %cr) %Cred%d' \
+        --date-order
+
+    logg = log --graph --branches --remotes --tags
+
 [push]
-	default = simple
+    default = simple
 [color]
-	ui = auto
+    ui = auto
 [diff]
-	tool = kdiff3
+    tool = vimdiff
 [merge]
-	tool = kdiff3
+    tool = vimdiff
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    clean = git-lfs clean -- %f
