@@ -2,14 +2,14 @@
 #
 # 1. bash_profile (contains no config)
 # 2. bashrc
-#    a. linux/bashrc
-#    b. osx/bash_profile
+#    a. bashrc.linux
+#    b. bash_profile.macos
 # 3. bash_aliases
-#    a. linux/bash_aliases
-#    b. osx/bash_aliases
+#    a. bash_aliases.linux
+#    b. bash_aliases.macos
 # 4. env_vars
-#    a. linux/env_vars
-#    b. osx/env_vars
+#    a. env_vars.linux
+#    b. env_vars.macos
 
 # Determine OS and distribution
 export IS_OSX=0
@@ -94,9 +94,9 @@ export VISUAL=vim
 
 # Source platform specific configs
 if [ "$IS_OSX" == 1 ]; then
-    . "$HOME/.dotfiles/osx/bash_profile"
+    . "$HOME/.dotfiles/bash_profile.macos"
 elif [ "$IS_LINUX" == 1 ]; then
-    . "$HOME/.dotfiles/linux/bashrc"
+    . "$HOME/.dotfiles/bashrc.linux"
 fi
 
 # Source aliases and functions
