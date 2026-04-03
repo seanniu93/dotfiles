@@ -75,7 +75,7 @@ mkfile() {
 
 # Source platform specific configs
 if [ "$IS_OSX" == 1 ]; then
-    . "$HOME/.dotfiles/osx/bash_aliases"
+    . "$HOME/.dotfiles/bash_aliases.macos"
 elif [ "$IS_LINUX" == 1 ]; then
-    . "$HOME/.dotfiles/linux/bash_aliases"
+    . "$HOME/.dotfiles/bash_aliases.linux"
 fi
