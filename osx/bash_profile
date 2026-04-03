@@ -7,6 +7,8 @@ export CLICOLOR=1                      # Global terminal colors
 export LSCOLORS=GxFxCxDxBxegedabagaced # Tell 'ls' to be colorful
 export GREP_OPTIONS='--color=auto'     # Tell grep to highlight matchs
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Prompt colors and text
 function prompt {
