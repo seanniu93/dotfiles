@@ -36,9 +36,11 @@ function prompt {
 prompt
 
 
-####################
-# Program Settings #
-####################
+################
+# App Settings #
+################
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if type brew > /dev/null 2>&1; then
     export BREW_PREFIX=$(brew --prefix)
@@ -47,46 +49,6 @@ fi
 # [brew] Enable bash-completion2
 if [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ]; then
     . "$BREW_PREFIX/share/bash-completion/bash_completion"
-fi
-
-# Set PATH so it includes user's private bin if it exists
-pathprepend "$HOME/Applications/bin"
-
-# Java 7
-# JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
-# export JAVA_HOME=${JAVA7_HOME}
-# export PATH=$JAVA_HOME/bin:$PATH
-
-# Java 8
-# JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
-# export JAVA_HOME="$JAVA8_HOME"
-# pathprepend "$JAVA_HOME/bin"
-
-# [brew] Initialize rbenv to enable shims and autocompletion
-if type rbenv > /dev/null 2>&1; then
-    eval "$(rbenv init -)";
-fi
-
-# [brew] Initialize pyenv
-if type pyenv > /dev/null 2>&1; then
-    eval "$(pyenv init -)";
-fi
-
-# Go
-if type brew > /dev/null 2>&1; then
-    BREW_GO_PREFIX=$(brew --prefix go)
-    if [ -d "$BREW_GO_PREFIX" ]; then
-        GOPATH_PUBLIC="$HOME/Developer/go/public"
-        GOPATH_PERSONAL="$HOME/Developer/go/personal"
-        export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
-        pathprepend "$BREW_GO_PREFIX/libexec/bin"
-        pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
-    fi
-fi
-
-# Rust
-if [ -d "$HOME/.cargo/bin" ]; then
-    pathprepend "$HOME/.cargo/bin"
 fi
 
 # [iterm2] Enable iTerm 2 shell integration
@@ -117,3 +79,64 @@ fi
 if [ -f "$HOME/.openclaw/completions/openclaw.bash" ]; then
     source "$HOME/.openclaw/completions/openclaw.bash"
 fi
+
+# LM Studio
+if [ -d "$HOME/.lmstudio/bin" ]; then
+    pathappend "$HOME/.lmstudio/bin"
+fi
+
+# Google Antigravity
+if [ -d "$HOME/.antigravity/antigravity/bin" ]; then
+    pathprepend "$HOME/.antigravity/antigravity/bin"
+fi
+
+###############
+# Programming #
+###############
+
+# Java 7
+# JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+# export JAVA_HOME=${JAVA7_HOME}
+# export PATH=$JAVA_HOME/bin:$PATH
+
+# Java 8
+# JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+# export JAVA_HOME="$JAVA8_HOME"
+# pathprepend "$JAVA_HOME/bin"
+
+# [brew] Initialize rbenv to enable shims and autocompletion
+if type rbenv > /dev/null 2>&1; then
+    eval "$(rbenv init -)";
+fi
+
+# [brew] Initialize pyenv
+if type pyenv > /dev/null 2>&1; then
+    eval "$(pyenv init -)";
+fi
+
+# [brew] Go
+if type brew > /dev/null 2>&1; then
+    BREW_GO_PREFIX=$(brew --prefix go)
+    if [ -d "$BREW_GO_PREFIX" ]; then
+        GOPATH_PUBLIC="$HOME/Developer/go/public"
+        GOPATH_PERSONAL="$HOME/Developer/go/personal"
+        export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
+        pathprepend "$BREW_GO_PREFIX/libexec/bin"
+        pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
+    fi
+fi
+
+# Rust
+if [ -d "$HOME/.cargo/bin" ]; then
+    pathprepend "$HOME/.cargo/bin"
+fi
+
+# Node version manager
+# https://github.com/nvm-sh/nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# KEEP THIS LAST
+# Set PATH so it includes user's private bin if it exists
+pathprepend "$HOME/.local/bin"
