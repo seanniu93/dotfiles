@@ -1,3 +1,5 @@
+# vim: set syntax=bash:
+
 #################
 # Bash Settings #
 #################
@@ -78,6 +80,11 @@ fi
 # OpenClaw completion
 if [ -f "$HOME/.openclaw/completions/openclaw.bash" ]; then
     source "$HOME/.openclaw/completions/openclaw.bash"
+fi
+
+# Hermes Agent
+if [ -d "$HOME/.local/bin" ]; then
+    pathprepend "$HOME/.local/bin"
 fi
 
 # LM Studio
