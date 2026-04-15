@@ -42,11 +42,11 @@ prompt
 # App Settings #
 ################
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 if type brew > /dev/null 2>&1; then
     export BREW_PREFIX=$(brew --prefix)
 fi
+
+eval "$($BREW_PREFIX/bin/brew shellenv)"
 
 # [brew] Enable bash-completion2
 if [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ]; then
@@ -138,11 +138,11 @@ if [ -d "$HOME/.cargo/bin" ]; then
     pathprepend "$HOME/.cargo/bin"
 fi
 
-# Node version manager
-# https://github.com/nvm-sh/nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fnm
+if type fnm > /dev/null 2>&1; then
+    eval "$(fnm env --shell bash)"
+fi
+
 
 # KEEP THIS LAST
 # Set PATH so it includes user's private bin if it exists
