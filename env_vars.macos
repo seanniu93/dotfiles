@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Common folders
-export db="$HOME/Dropbox"
+export DROPBOX="$HOME/Dropbox"
+export GDRIVE="$HOME/Google Drive/My Drive"
 
 # Common files

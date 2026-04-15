@@ -10,6 +10,7 @@
 # 4. env_vars
 #    a. env_vars.linux
 #    b. env_vars.macos
+# 5. env_vars.secret
 
 # Determine OS and distribution
 export IS_OSX=0
