@@ -20,17 +20,18 @@ function prompt {
     local CYAN="\[\033[0;36m\]"
     local LBLUE="\[\033[1;34m\]"
     local CLEAR="\[\033[0m\]"
-    local RED="\[033[0;31m\]"
+    local RED="\[\033[0;31m\]"
+    local ORANGE="\[\033[38;5;208m\]"
 
     # username@computer:directory$
-    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\W${CLEAR}$ "
+#   PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}$ "
 
     # username@computer:path/to/directory$
     # PROMPT_DIRTRIM=3
-    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\W${CLEAR}$ "
+#   PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}$ "
 
-    # username@computer:directory$ with newline
-    #PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CLEAR}\w\n$ "
+    # username@computer:path/to/directory$ with newline
+    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${ORANGE}\n$ ${CLEAR}"
 
     # no color
     #PS1="\u@\h:\W$ "
