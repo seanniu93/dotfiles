@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Common folders
+# Common folders and folders
 export DROPBOX="$HOME/Dropbox"
 export GDRIVE="$HOME/Google Drive/My Drive"
 
-# Common files
+export OPENCODE_ENABLE_EXA=1
