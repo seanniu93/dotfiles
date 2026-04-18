@@ -31,7 +31,7 @@ function prompt {
 #   PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}$ "
 
     # username@computer:path/to/directory$ with newline
-    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${ORANGE}\n$ ${CLEAR}"
+    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}\n${ORANGE}\$ ${CLEAR}"
 
     # no color
     #PS1="\u@\h:\W$ "
