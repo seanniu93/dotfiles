@@ -65,6 +65,7 @@ set cmdheight=2
 
 " ---- Color Scheme ----
 try
+    set termguicolors
     colorscheme molokai
     " Red/green diff colors in git commit message editor
     " See: https://github.com/tomasr/molokai/issues/36#issuecomment-234142007
