@@ -30,8 +30,13 @@ function prompt {
     # PROMPT_DIRTRIM=3
 #   PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}$ "
 
-    # username@computer:path/to/directory$ with newline
-    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}\n${ORANGE}\$ ${CLEAR}"
+    # username@computer:path/to/directory
+    # $
+#   PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}\n${ORANGE}\$ ${CLEAR}"
+
+    # username@computer:path/to/directory
+    # HH:MM:SS $
+    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}\n\t ${ORANGE}\$ ${CLEAR}"
 
     # no color
     #PS1="\u@\h:\W$ "
