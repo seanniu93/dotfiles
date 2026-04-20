@@ -50,8 +50,8 @@ fi
 eval "$($BREW_PREFIX/bin/brew shellenv)"
 
 # [brew] Enable bash-completion2
-if [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ]; then
-    . "$BREW_PREFIX/share/bash-completion/bash_completion"
+if [[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
+  . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
 # [iterm2] Enable iTerm 2 shell integration
@@ -139,7 +139,7 @@ if [ -d "$HOME/.cargo/bin" ]; then
     pathprepend "$HOME/.cargo/bin"
 fi
 
-# fnm
+# [brew] fnm
 if type fnm > /dev/null 2>&1; then
     eval "$(fnm env --shell bash)"
 fi
