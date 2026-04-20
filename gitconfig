@@ -57,6 +57,8 @@
     tool = vimdiff
 [merge]
     tool = vimdiff
+[init]
+    defaultBranch = main
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     required = true
