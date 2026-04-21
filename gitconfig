@@ -10,6 +10,7 @@
     ci = commit
     civ = commit --verbose
     co = checkout
+    sw = switch
 
     # More readable git aliases
     # Credit: http://gggritso.com/human-git-aliases
@@ -20,6 +21,7 @@
     stashes = stash list
     remotes = remote -v
     aliases = config --get-regexp ^alias\\.
+    worktrees = worktree list
 
     # Staging
     unstage = reset -q HEAD --
