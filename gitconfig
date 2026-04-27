@@ -37,19 +37,34 @@
     whenadded = log --diff-filter=A
 
     # Log formats
+
+    # Standard log with graph
+    logg = log --graph --branches --remotes --tags
+
+    # Pretty oneline
     fancy = log --graph \
         --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
         --abbrev-commit --date=relative
 
-    graph = log --graph -10 --branches --remotes --tags \
+    # Fancy short
+    fancys = log -10 --graph \
+        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
+        --abbrev-commit --date=relative
+
+    # Fancy graph
+    fancyg = log --graph --branches --remotes --tags \
+        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
+        --abbrev-commit --date=relative
+
+    # Graph
+    graph = log --graph --branches --remotes --tags \
         --format='%Cgreen%h %Creset• %<(75,trunc)%s (%aN, %cr) %Cred%d' \
         --date-order
 
-    graphall = log --graph --branches --remotes --tags \
+    # Graph short
+    graphs = log -10 --graph --branches --remotes --tags \
         --format='%Cgreen%h %Creset• %<(75,trunc)%s (%aN, %cr) %Cred%d' \
         --date-order
-
-    logg = log --graph --branches --remotes --tags
 
 [push]
     default = simple
