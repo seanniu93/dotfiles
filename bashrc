@@ -95,7 +95,7 @@ export VISUAL=vim
 
 # Source platform specific configs
 if [ "$IS_OSX" == 1 ]; then
-    . "$HOME/.dotfiles/bash_profile.macos"
+    . "$HOME/.dotfiles/bashrc.macos"
 elif [ "$IS_LINUX" == 1 ]; then
     . "$HOME/.dotfiles/bashrc.linux"
 fi
