@@ -43,17 +43,17 @@
 
     # Pretty oneline
     fancy = log --graph \
-        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
+        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%aN>%Creset' \
         --abbrev-commit --date=relative
 
     # Fancy short
     fancys = log -10 --graph \
-        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
+        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%aN>%Creset' \
         --abbrev-commit --date=relative
 
     # Fancy graph
     fancyg = log --graph --branches --remotes --tags \
-        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' \
+        --format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%aN>%Creset' \
         --abbrev-commit --date=relative
 
     # Graph
