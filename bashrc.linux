@@ -1,3 +1,5 @@
+# vim: set syntax=bash:
+
 ###################
 # Debian Template #
 ###################
@@ -79,10 +81,28 @@ fi
 # Bash Settings #
 #################
 
+# Prompt colors and text
+function prompt {
+    # Custom colors
+    local WHITE="\[\033[1;37m\]"
+    local GREEN="\[\033[0;32m\]"
+    local CYAN="\[\033[0;36m\]"
+    local LBLUE="\[\033[1;34m\]"
+    local CLEAR="\[\033[0m\]"
+    local RED="\[\033[0;31m\]"
+    local ORANGE="\[\033[38;5;208m\]"
+    local LGRAY="\[\033[0;37m\]"
+    local DGRAY="\[\033[0;90m\]"
 
-####################
-# Program Settings #
-####################
+    # username@computer:path/to/directory
+    # HH:MM:SS $
+    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w\n${DGRAY}\t ${ORANGE}\$ ${CLEAR}"
+}
+prompt
+
+#################
+# App  Settings #
+#################
 
 # Set PATH so it includes user's private bin if it exists
 pathprepend "$HOME/bin"

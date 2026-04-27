@@ -22,6 +22,8 @@ function prompt {
     local CLEAR="\[\033[0m\]"
     local RED="\[\033[0;31m\]"
     local ORANGE="\[\033[38;5;208m\]"
+    local LGRAY="\[\033[0;37m\]"
+    local DGRAY="\[\033[0;90m\]"
 
     # username@computer:directory$
 #   PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}$ "
@@ -36,7 +38,7 @@ function prompt {
 
     # username@computer:path/to/directory
     # HH:MM:SS $
-    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w${CLEAR}\n\t ${ORANGE}\$ ${CLEAR}"
+    PS1="${GREEN}\u${CYAN}@${LBLUE}\h${WHITE}:${CYAN}\w\n${DGRAY}\t ${ORANGE}\$ ${CLEAR}"
 
     # no color
     #PS1="\u@\h:\W$ "
