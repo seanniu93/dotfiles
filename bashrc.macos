@@ -95,11 +95,6 @@ if [ -f "$HOME/.openclaw/completions/openclaw.bash" ]; then
     source "$HOME/.openclaw/completions/openclaw.bash"
 fi
 
-# Hermes Agent
-if [ -d "$HOME/.local/bin" ]; then
-    pathappend "$HOME/.local/bin"
-fi
-
 # LM Studio
 if [ -d "$HOME/.lmstudio/bin" ]; then
     pathappend "$HOME/.lmstudio/bin"
@@ -139,8 +134,8 @@ fi
 if type brew > /dev/null 2>&1; then
     BREW_GO_PREFIX=$(brew --prefix go)
     if [ -d "$BREW_GO_PREFIX" ]; then
-        GOPATH_PUBLIC="$HOME/Developer/go/public"
-        GOPATH_PERSONAL="$HOME/Developer/go/personal"
+        GOPATH_PUBLIC="$HOME/Developer/runtime/go/public"
+        GOPATH_PERSONAL="$HOME/Developer/runtime/go/personal"
         export GOPATH="$GOPATH_PUBLIC:$GOPATH_PERSONAL"
         pathprepend "$BREW_GO_PREFIX/libexec/bin"
         pathprepend "$GOPATH_PUBLIC/bin" "$GOPATH_PERSONAL/bin"
