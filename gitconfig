@@ -68,6 +68,11 @@
 
 [push]
     default = simple
+[pull]
+    ff = only
+[rebase]
+    autoStash = true
+
 [color]
     ui = auto
 [diff]
