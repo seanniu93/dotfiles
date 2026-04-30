@@ -44,3 +44,6 @@ Session.vim
 #### Sublime Text ####
 *.sublime-project
 *.sublime-workspace
+
+#### Common sense ####
+/tmp/
