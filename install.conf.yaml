@@ -10,6 +10,8 @@
     ~/.bash_logout: bash_logout
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.config/ghostty/config.ghostty: ghostty/config.ghostty
+    ~/.config/nvim: nvim
     ~/.env_vars: env_vars
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
@@ -19,4 +21,3 @@
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
     ~/.vimrc: vimrc
-    ~/.config/nvim: nvim

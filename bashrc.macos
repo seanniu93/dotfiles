@@ -105,6 +105,11 @@ if [ -d "$HOME/.antigravity/antigravity/bin" ]; then
     pathappend "$HOME/.antigravity/antigravity/bin"
 fi
 
+# Ghostty
+if [ -d "/Applications/Ghostty.app" ]; then
+    pathappend "/Applications/Ghostty.app/Contents/MacOS"
+fi
+
 
 ###############
 # Programming #
