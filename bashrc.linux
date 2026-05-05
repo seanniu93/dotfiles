@@ -155,7 +155,7 @@ command -v rg >/dev/null 2>&1 && \
 
 # keychain
 if [ -f /usr/bin/keychain ]; then
-    alias start_keychain='eval `keychain --eval --agents ssh id_rsa`'
+    alias start_keychain='eval `keychain --eval --agents ssh id_ed25519`'
 fi
 
 # homebrew
