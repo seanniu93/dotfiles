@@ -10,7 +10,9 @@
     ~/.bash_logout: bash_logout
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
-    ~/.config/ghostty/config.ghostty: ghostty/config.ghostty
+    ~/.config/ghostty/config.ghostty:
+      if: '[ `uname` = Darwin ]'
+      path: ghostty/config.ghostty
     ~/.config/nvim: nvim
     ~/.env_vars: env_vars
     ~/.gitconfig: gitconfig
