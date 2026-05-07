@@ -130,10 +130,7 @@ if type rbenv > /dev/null 2>&1; then
     eval "$(rbenv init -)";
 fi
 
-# [brew] Initialize pyenv
-if type pyenv > /dev/null 2>&1; then
-    eval "$(pyenv init -)";
-fi
+# [brew] pyenv replaced by uv
 
 # [brew] Go
 if type brew > /dev/null 2>&1; then
@@ -156,7 +153,6 @@ fi
 if type fnm > /dev/null 2>&1; then
     eval "$(fnm env --shell bash)"
 fi
-
 
 # KEEP THIS LAST
 # Set PATH so it includes user's private bin if it exists
