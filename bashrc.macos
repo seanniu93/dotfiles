@@ -51,13 +51,12 @@ prompt
 ################
 
 if type brew > /dev/null 2>&1; then
-    export BREW_PREFIX=$(brew --prefix)
+    export BREW_PREFIX="$(brew --prefix)"
+    eval "$("$BREW_PREFIX/bin/brew" shellenv)"
 fi
 
-eval "$($BREW_PREFIX/bin/brew shellenv)"
-
 # [brew] Enable bash-completion2
-if [[ -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
+if [[ -n "$BREW_PREFIX" && -r "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
   . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
@@ -134,7 +133,7 @@ fi
 
 # [brew] Go
 if type brew > /dev/null 2>&1; then
-    BREW_GO_PREFIX=$(brew --prefix go)
+    BREW_GO_PREFIX="$(brew --prefix go 2>/dev/null)"
     if [ -d "$BREW_GO_PREFIX" ]; then
         GOPATH_PUBLIC="$HOME/Developer/runtime/go/public"
         GOPATH_PERSONAL="$HOME/Developer/runtime/go/personal"

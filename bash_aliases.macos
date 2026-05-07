@@ -69,7 +69,7 @@ brew() {
         echo "brew update && brew upgrade && brew cleanup"
         brew update && brew upgrade && brew cleanup
     else
-        command brew $@
+        command brew "$@"
     fi
 }
 
